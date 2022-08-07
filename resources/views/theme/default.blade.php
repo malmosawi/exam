@@ -6,16 +6,17 @@
 		<meta charset="UTF-8">
 		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta content="Hogo– Creative Admin Multipurpose Responsive Bootstrap4 Dashboard HTML Template" name="description">
-		<meta content="Spruko Technologies Private Limited" name="author">
-		<meta name="keywords" content="html admin template, bootstrap admin template premium, premium responsive admin template, admin dashboard template bootstrap, bootstrap simple admin template premium, web admin template, bootstrap admin template, premium admin template html5, best bootstrap admin template, premium admin panel template, admin template"/>
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+		{{-- <meta content="Hogo– Creative Admin Multipurpose Responsive Bootstrap4 Dashboard HTML Template" name="description">
+		<meta content="Spruko Technologies Private Limited" name="author"> --}}
+		{{-- <meta name="keywords" content="html admin template, bootstrap admin template premium, premium responsive admin template, admin dashboard template bootstrap, bootstrap simple admin template premium, web admin template, bootstrap admin template, premium admin template html5, best bootstrap admin template, premium admin panel template, admin template"/> --}}
 
 		<!-- Favicon -->
 		<link rel="icon" href="{{asset('../assets/images/brand/favicon.ico')}}" type="image/x-icon"/>
 		<link rel="shortcut icon" type="image/x-icon" href="{{asset('../assets/images/brand/favicon.ico')}}" />
 
 		<!-- Title -->
-		<title>Hogo – Creative Admin Multipurpose Responsive Bootstrap4 Dashboard HTML Template</title>
+		<title>Exam</title>
 
 		<!--Bootstrap.min css-->
 		<link rel="stylesheet" href="{{asset('../assets/plugins/bootstrap/css/bootstrap.min.css')}}">
@@ -45,39 +46,46 @@
 
 		<!-- Morris  Charts css-->
 		<link href="{{asset('../assets/plugins/morris/morris.css')}}" rel="stylesheet" />
+		<!---Sweetalert Css-->
+		<link href="{{asset('assets/plugins/sweet-alert/jquery.sweet-modal.min.css')}}" rel="stylesheet" />
+		<link href="{{asset('assets/plugins/sweet-alert/sweetalert.css')}}" rel="stylesheet" />
+		
 
 		<!---Font icons css-->
 		<link href="{{asset('../assets/plugins/iconfonts/plugin.css')}}" rel="stylesheet" />
 		<link href="{{asset('../assets/plugins/iconfonts/icons.css')}}" rel="stylesheet" />
 		<link  href="{{asset('../assets/fonts/fonts/font-awesome.min.css')}}" rel="stylesheet">
 
+		<!-- Data table css -->
+		<link href="{{asset('../assets/plugins/datatable/dataTables.bootstrap4.min.css')}}" rel="stylesheet" />
+		<link href="{{asset('../assets/plugins/datatable/responsivebootstrap4.min.css')}}" rel="stylesheet" />
+		
+
 	</head>
 
 	<body class="app sidebar-mini rtl">
+	<!-- Jquery js-->
+	<script src="{{asset('../assets/js/vendors/jquery-3.2.1.min.js')}}"></script>
+
 
 		<!--Global-Loader-->
 		<div id="global-loader">
-			<img src="../assets/images/icons/loader.svg" alt="loader">
+			<img src="{{asset('assets/images/icons/loader.svg')}}" alt="loader">
 		</div>
 
 		<div class="page">
 			<div class="page-main">
 				@include('theme.header')
-				@if (Route::has('login'))
-					@auth
-						@include('theme.Horizontal-menu')
-						@include('theme.Header-submenu')
-					@endauth
+				{{-- @include('theme.Horizontal-menu') --}}
+				@if(Route::is('admin.index') )
+					@include('theme.Header-submenu')
+
 				@endif
 					<!-- app-content-->
 				<div id="container content-area">
 
 					@yield('content')
 
-				@if (Route::has('login'))
-					@auth
-					@endauth
-					@endif
 				@include('theme.Right-sidebar')
 				@include('theme.footer')
 
@@ -91,8 +99,6 @@
 		<a href="#top" id="back-to-top"><i class="fa fa-angle-up"></i></a>
 
 
-		<!-- Jquery js-->
-		<script src="{{asset('../assets/js/vendors/jquery-3.2.1.min.js')}}"></script>
 
 		<!--Bootstrap.min js-->
 		<script src="{{asset('../assets/plugins/bootstrap/popper.min.js')}}"></script>
@@ -129,6 +135,9 @@
 		<!-- Rightsidebar js -->
 		<script src="{{asset('../assets/plugins/sidebar/sidebar.js')}}"></script>
 
+		{{-- <script src="{{asset('../assets/js/rangeslider.js')}}"></script> --}}
+
+
 		<!-- Charts js-->
 		<script src="{{asset('../assets/plugins/chart/chart.bundle.js')}}"></script>
 		<script src="{{asset('../assets/plugins/chart/utils.js')}}"></script>
@@ -141,8 +150,23 @@
 		<script src="{{asset('../assets/plugins/morris/raphael-min.js')}}"></script>
 		<script src="{{asset('../assets/plugins/morris/morris.js')}}"></script>
 
-		<!-- Custom-charts js-->
-		<script src="{{asset('../assets/js/index1.js')}}"></script>
+
+		<!-- Sweet alert js-->
+		<script src="{{asset('assets/plugins/sweet-alert/jquery.sweet-modal.min.js')}}"></script>
+		<script src="{{asset('assets/plugins/sweet-alert/sweetalert.min.js')}}"></script>
+		<script src="{{asset('assets/js/sweet-alert.js')}}"></script>
+
+		<!-- Data tables js-->
+		<script src="{{asset('assets/plugins/datatable/jquery.dataTables.min.js')}}"></script>
+		<script src="{{asset('assets/plugins/datatable/dataTables.bootstrap4.min.js')}}"></script>
+		<script src="{{asset('assets/plugins/datatable/datatable.js')}}"></script>
+		<script src="{{asset('assets/plugins/datatable/datatable-2.js')}}"></script>
+		<script src="{{asset('assets/plugins/datatable/dataTables.responsive.min.js')}}"></script>
+		<!-- Tabs css-->
+		<link href="{{asset('assets/plugins/tabs/style.css')}}" rel="stylesheet" />
+
+
+		
 
 		<!-- Custom js-->
 		<script src="{{asset('../assets/js/custom.js')}}"></script>

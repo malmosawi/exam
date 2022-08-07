@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Student\StudentIndex;
+use App\Http\Controllers\Student\StudentPrpfile;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +16,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('student')->name('student.')->group(function(){
-    Route::middleware('isStudent')->group(function(){
-        Route::view('index','student.index')->name('index');
+    Route::middleware(['isStudent', 'verify.mobile'])->group(function(){
+            Route::get('index', [StudentIndex::class, 'create'])->name('index');
+            Route::get('profile', [StudentPrpfile::class, 'profile'])->name('proflile');
+            Route::post('profile', [StudentPrpfile::class, 'updateprofile'])->name('updateprofile');
+            Route::post('updatepassword', [StudentPrpfile::class, 'updatepassword'])->name('updatepassword');
+            Route::get('offlineindex', [StudentIndex::class, 'offlinecreate'])->name('offlineindex');
+            Route::post('save', [StudentIndex::class, 'save'])->name('save');
+
     });
 
     require __DIR__.'/student_auth.php';
 });
+
 
 

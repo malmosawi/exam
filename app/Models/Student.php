@@ -2,16 +2,18 @@
 
 namespace App\Models;
 
+use App\Traits\MustVerifyMobile;
+use App\Interfaces\MustVerifyMobile as IMustVerifyMobile;// --*
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class Student extends Authenticatable
+class Student extends Authenticatable implements IMustVerifyMobile
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    use MustVerifyMobile; 
     /**
      * The attributes that are mass assignable.
      *
@@ -20,8 +22,19 @@ class Student extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'phone',
+        'email_verified_at',
+        'mobile_number',
+        'mobile_verify_code',
+        'mobile_attempts_left',
+        'mobile_last_attempt_date',
+        'mobile_verify_code_sent_at',
         'password',
+        'governorate',
+        'status',
+        'certificate',
+        'code',
+        'online',
+        'approve',
     ];
 
     /**
@@ -32,6 +45,7 @@ class Student extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'mobile_verify_code',
     ];
 
     /**
@@ -41,5 +55,16 @@ class Student extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'number_verified_at' => 'datetime',
+        'mobile_verify_code_sent_at' => 'datetime',
+        'mobile_last_attempt_date' => 'datetime'
     ];
+
+    public function routeNotificationForVonage($notification)
+    {
+        return $this->mobile_number;
+    }
+
+
+
 }

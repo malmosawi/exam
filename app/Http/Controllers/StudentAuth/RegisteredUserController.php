@@ -4,12 +4,15 @@ namespace App\Http\Controllers\StudentAuth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Student;
+use App\Models\Governorate;
+
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Http;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +23,16 @@ class RegisteredUserController extends Controller
      */
     public function create()
     {
-        return view('student.register');
+        // $response = Http::get('mydomain.com/api/sync-data?ee=1', [
+        //     // 'data' => Data::all(),
+        //     // 'newdata' => NewData::all(),
+        // ]);
+        // dd($response);
+
+
+        $Governorate = Governorate::all();
+
+        return view('student.register',['governorate'=>$Governorate]);
     }
 
     /**
@@ -36,20 +48,25 @@ class RegisteredUserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:students'],
-            'phone' => ['required', 'string', 'digits:11', 'unique:students'],
+            'mobile_number' => ['required', 'string', 'digits:11', 'unique:students'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'governorate'=> ['required'],
         ]);
 
         $user = Student::create([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->phone,
+            'mobile_number' => $request->mobile_number,
             'password' => Hash::make($request->password),
+            'governorate'=> $request->governorate,
+            'mobile_verify_code' => random_int(111111, 999999),
+
         ]);
 
+        
         event(new Registered($user));
 
-        Auth::login($user);
+        Auth::guard('student')->login($user);
 
         return redirect()->route('student.index');
     }

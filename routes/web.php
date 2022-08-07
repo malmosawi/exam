@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,11 +21,12 @@ Route::get('/demo', function () {
     return view('demo');
 });
 
-Route::get('/dashboard', function () {
-    return view('demo');
-})->middleware(['auth','verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('admin.index');
+// })->middleware(['auth'])->name('dashboard');
 
 
 
 require __DIR__.'/auth.php';
 require __DIR__.'/student.php';
+require __DIR__.'/admin.php';

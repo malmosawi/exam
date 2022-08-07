@@ -127,5 +127,24 @@ $(function(e){
 			cancelButtonText: 'Stay on the page'
 		});
 	});
+
+
+	$(document).on('click','#click4',function(e){
+		swal({
+			title: "Are you sure?",
+			text: "Do you want to enrollment in exam?",
+			type: "warning",
+			showCancelButton: true,
+			confirmButtonClass: "btn-danger",
+			confirmButtonText: "Yes, Enrollment",
+			closeOnConfirm: false
+			},
+			function(){
+			swal(" Exam Enrollment", "Congratulations, you have registered in exam", "success");
+		});
+
+
+	});
+
 	
 });

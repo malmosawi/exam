@@ -1,4 +1,4 @@
-@extends('theme.default')
+@extends('theme.login-default')
 @section('content')
 
 			<!-- page-content -->

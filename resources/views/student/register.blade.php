@@ -1,4 +1,4 @@
-@extends('theme.default')
+@extends('theme.login-default')
 @section('content')
 
 			<!-- page-content -->
@@ -11,7 +11,7 @@
 									<div class="card">
 										<div class="card-body">
 											<div class="text-center mb-6">
-												<img src="../assets/images/brand/logo.png" class="" alt="">
+												<img src="asset{{('/assets/images/brand/logo.png')}}" class="" alt="">
 											</div>
 											<h3>Student Register</h3>
 											<p class="text-muted">Create New Account</p>
@@ -25,8 +25,8 @@
                                                     <input id="name" type="text" class="form-control" placeholder="Enter name" name="name" :value="old('name')" required autofocus />
                                                 </div>
                                                 <div class="input-group mb-4">
-                                                    <span class="input-group-addon bg-white"><i class="fa fa-envelope  w-4"></i></span>
-                                                    <input id="phone" type="phone" class="form-control" placeholder="Enter phone" name="phone" :value="old('phone')" required />
+                                                    <span class="input-group-addon bg-white"><i class="fa fa-mobile w-4"></i></span>
+                                                    <input id="phone" type="phone" class="form-control" placeholder="Enter Mobile Number" name="mobile_number" :value="old('mobile_number')" required />
                                                 </div>
 
                                                 <div class="input-group mb-4">
@@ -40,6 +40,20 @@
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon bg-white"><i class="fa fa-unlock-alt  w-4"></i></span>
                                                     <input id="password_confirmation" type="password" class="form-control" placeholder="password_confirmation"  name="password_confirmation" required />
+                                                </div>
+                                                <div class="input-group mb-4">
+                                                    <span class="input-group-addon bg-white"><i class="fa fa-institution  w-4"></i></span>
+                                                    <div class="form-group ">
+                                                        <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required>
+                                                            <option label="Choose one">
+                                                            </option>
+                                                            @foreach ($governorate as $item)
+                                                                <option value="{{$item->id}}">{{$item->governorate}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+    
+                                                    {{-- <input id="governorate" type="text" class="form-control" placeholder="governorate"  name="governorate" required /> --}}
                                                 </div>
 
                                                 {{-- <div class="form-group">
