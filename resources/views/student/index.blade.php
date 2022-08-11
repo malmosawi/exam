@@ -38,7 +38,7 @@
                 <div class="card">
                     <div class="card-header ">
                         <h3 class="card-title ">Certificate</h3>
-                        @if ($certificate->degree != null)
+                        @if ($certificate != NULL)
                             <div class="card-options">
                                 <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
                                 <a href="{{route('student.printCertificate',Auth::guard('student')->user()->id)}}" class="card-options-collapse" ><i class="fa fa-print"></i></a>
