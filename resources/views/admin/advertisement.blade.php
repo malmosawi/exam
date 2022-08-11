@@ -51,7 +51,7 @@
                                             <td class="text-nowrap align-middle "><textarea readonly class="content">{{$item->content}}</textarea></td>
                                             <td class="text-nowrap align-middle date"><span>{{$item->date}}</span></td>
 
-                                            <td class="text-nowrap align-middle status"><span>{{($item->status==1)?'Active':'Inactive'}}</span></td>
+                                            <td class="text-nowrap align-middle status" data-id="{{$item->status}}"><span>{{($item->status==1)?'Active':'Inactive'}}</span></td>
         
                                             <td class="text-center align-middle">
                                                 <div class="btn-group align-top">
@@ -165,7 +165,7 @@
 
                                 <div class="form-group">
                                     <label class="custom-switch">
-                                        <input type="checkbox" name="status" class="custom-switch-input" id="status" checked="{{($item->status==1)?'checked':''}}">
+                                        <input type="checkbox" name="status" class="custom-switch-input" id="status" checked="checked">
                                         <span class="custom-switch-indicator"></span>
                                         <span class="custom-switch-description">avtive</span>
                                     </label>
@@ -190,7 +190,7 @@
         $('#content').val($(this).parents('tr').find('.content').text());
         $('#date').val($(this).parents('tr').find('.date').text());
 
-        if($(this).parents('tr').find('.status').text() == '0'){
+        if($(this).parents('tr').find('.status').attr('data-id') == '0'){
             $('#status').removeAttr('checked');
         }
     })
