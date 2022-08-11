@@ -22,9 +22,9 @@ class AdminIndexContruller extends Controller
     {
         $governorate=Auth::guard('admin')->user()->governorate;
         $Student = Student::where('governorate',$governorate)
-                            ->where('approve', null)
-                            ->where('certificate', null)
-                            ->where('mobile_verified_at','!=' ,null)
+                            ->where('approve', NULL)
+                            // ->where('certificate', NULL)
+                            ->where('mobile_verified_at','!=' ,NULL)
                             ->get();
         $governorate=Governorate::all();              
       
