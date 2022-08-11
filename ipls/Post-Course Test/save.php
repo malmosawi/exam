@@ -38,7 +38,7 @@ $user = $_POST['user'];
 // 	$q = mysqli_query($link, $sql4);
 
 
-	$sql5         = " UPDATE `student_exam` SET stage=13, step=$qustion_num, degree= $degree WHERE `user_id` =   $user ";	
+	$sql5         = " UPDATE `student_exam` SET stage=13, step=$qustion_num, degree= $score WHERE `user_id` =   $user ";	
 	$q1 = mysqli_query($link, $sql5);
 // }
 ?>

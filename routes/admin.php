@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ExamContruller;
 use App\Http\Controllers\Admin\AdvertisementContruller;
 use App\Http\Controllers\Admin\AdminContruller;
 use App\Http\Controllers\Admin\ExamcenterContruller;
+use App\Http\Controllers\Admin\SyncContruller;
 
 
 /*
@@ -59,6 +60,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
 
         Route::get('offlineindex', [AdminIndexContruller::class, 'offlinecreate'])->name('offlineindex');
         Route::get('examtrack', [AdminIndexContruller::class, 'examtrack'])->name('examtrack');
+        Route::get('offlinesync', [SyncContruller::class, 'offlinesync'])->name('offlinesync');
 
 
     });

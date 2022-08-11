@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Models\Advertisement;
 use App\Models\StudentExam;
+use App\Models\Student;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -18,8 +19,17 @@ class StudentIndex extends Controller
 
     public function create()
     {
+        $user = Auth::guard('student')->user()->id;
+
+        $Certificate=StudentExam::join('students','students.id','user_id')
+                                ->where('user_id',$user)
+                                // ->where('degree','>','19')
+                                ->first();
+                                // dd(var_dump($Certificate->user_id));
+
         $Advertisement = Advertisement::all();
-        return view('student.index', ['advertisement' => $Advertisement])->with('error', 0);
+        return view('student.index', ['advertisement' => $Advertisement,'certificate'=> $Certificate])->with('error', 0);
+
     }
 
     public function offlinecreate()
@@ -60,7 +70,13 @@ class StudentIndex extends Controller
                        ->header("Access-Control-Allow-Methods", config('cors.allowed_methods'));
     }
 
-
+    public function PrintCertificate($id)
+    {
+        $Certificate=StudentExam::join('students','students.id','user_id')
+                                ->where('user_id',$id)
+                                ->first();
+        return view('student.printcertificate', ['certificate'=> $Certificate])->with('error', 0);
+    }
 
 
 }

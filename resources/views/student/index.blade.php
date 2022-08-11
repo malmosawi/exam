@@ -38,90 +38,38 @@
                 <div class="card">
                     <div class="card-header ">
                         <h3 class="card-title ">Certificate</h3>
-                        <div class="ml-auto">
+                        @if ($certificate->degree != null)
+                            <div class="card-options">
+                                <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
+                                <a href="{{route('student.printCertificate',Auth::guard('student')->user()->id)}}" class="card-options-collapse" ><i class="fa fa-print"></i></a>
+                                
+                            </div>
+                        @endif
+                        {{-- <div class="ml-auto">
                             <div class="input-group">
                                 <input type='button' class="btn btn-primary mr-2" id='click4' value="Exam Enrollment">
 
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
-                    {{-- <div class="table-responsive">
-                        <table class="table card-table table-striped table-vcenter table-outline table-bordered text-nowrap ">
-                            <thead>
-                                <tr>
-                                    <th scope="col" class="border-top-0">ID</th>
-                                    <th scope="col" class="border-top-0">Project Name</th>
-                                    <th scope="col" class="border-top-0">Backend</th>
-                                    <th scope="col" class="border-top-0">Deadline</th>
-                                    <th scope="col" class="border-top-0">Team Members</th>
-                                    <th scope="col" class="border-top-0">Edit Project Details </th>
-                                    <th scope="col" class="border-top-0">list info</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>At vero eos et accusamus et iusto odio</td>
-                                    <td>PHP</td>
-                                    <td>15/11/2018</td>
-                                    <td>15 Members</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-                                        <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-                                    </td>
-                                    <td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>voluptatum deleniti atque corrupti quos</td>
-                                    <td>Angular js</td>
-                                    <td>25/11/2018</td>
-                                    <td>12 Members</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-                                        <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-                                    </td>
-                                    <td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>dignissimos ducimus qui blanditiis praesentium </td>
-                                    <td>Java</td>
-                                    <td>5/12/2018</td>
-                                    <td>20 Members</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-                                        <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-                                    </td>
-                                    <td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>deleniti atque corrupti quos dolores  </td>
-                                    <td>Phython</td>
-                                    <td>14/12/2018</td>
-                                    <td>10 Members</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-                                        <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-                                    </td>
-                                    <td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>et quas molestias excepturi sint occaecati</td>
-                                    <td>Phython</td>
-                                    <td>4/12/2018</td>
-                                    <td>17 Members</td>
-                                    <td>
-                                        <a class="btn btn-sm btn-primary" href="#"><i class="fa fa-edit"></i> Edit</a>
-                                        <a class="btn btn-sm btn-danger" href="#"><i class="fa fa-trash"></i> Delete</a>
-                                    </td>
-                                    <td><a class="btn btn-sm btn-info" href="#"><i class="fa fa-info-circle"></i> Details</a> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div> --}}
+                    <div class="card-body text-center">
+                        <img src="{{asset('assets/images/brand/logo.png')}}" alt="">
+                        <h1>
+                            International Paediatiric Life Support 
+                            <br>
+                            IPLS E-Learnubg certificate
+                        </h1>
+                        <h4>Presented To</h4>
+                        <h1>{{$certificate->name}}</h1>
+                        <h4>score (<span> {{$certificate->degree}} </span>)</h4>
+                        <h4>for completion of the </h4>
+                        <h4>IPLS course e-learning Model</h4>
+                        <h4 >on Date: <span>{{date('d-m-Y', strtotime($certificate->updated_at))}}</span></h4>
+
+                        <h4 style="text-align: end">code: <span>{{$certificate->certificate}}</span></h4>
+
+
+                    </div>
                 </div>
             </div>
         </div>

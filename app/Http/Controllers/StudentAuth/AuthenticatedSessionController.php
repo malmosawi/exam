@@ -20,24 +20,6 @@ class AuthenticatedSessionController extends Controller
      */
     public function create()
     {
-
-
-                $response = Http::get('http://127.0.0.1:8000/api/syncup');
-
-        // $response = Http::get('http://jsonplaceholder.typicode.com/posts');
-        // $response = Http::get('https://aikhtisar.com/api/v1/get-sliders');
-
-        $jsonData = $response->json();
-         
-        dd($jsonData);
-        // $response = Http::post('http://jsonplaceholder.typicode.com/posts', [
-        //     'title' => 'This is test from tutsmake.com',
-        //     'body' => 'This is test from tutsmake.com as body',
-        // ]);
-
-        // dd($response->successful());
-
-
         return view('student.login');
     }
 
