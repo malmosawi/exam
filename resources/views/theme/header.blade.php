@@ -15,10 +15,10 @@
 									</a>
 								</div><!-- full-screen -->
 								<div class="dropdown header-notify">
-									<a class="nav-link icon" data-toggle="dropdown" aria-expanded="false">
+									{{-- <a class="nav-link icon" data-toggle="dropdown" aria-expanded="false">
 										<i class="fe fe-bell "></i>
 										<span class="pulse bg-success"></span>
-									</a>
+									</a> --}}
 									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
 										<a href="#" class="dropdown-item text-center">4 New Notifications</a>
 										<div class="dropdown-divider"></div>
