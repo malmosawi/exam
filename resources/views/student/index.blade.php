@@ -53,21 +53,22 @@
                         </div> --}}
                     </div>
                     <div class="card-body text-center">
-                        <img src="{{asset('assets/images/brand/logo.png')}}" alt="">
-                        <h1>
-                            International Paediatiric Life Support 
-                            <br>
-                            IPLS E-Learnubg certificate
-                        </h1>
-                        <h4>Presented To</h4>
-                        <h1>{{$certificate->name}}</h1>
-                        <h4>score (<span> {{$certificate->degree}} </span>)</h4>
-                        <h4>for completion of the </h4>
-                        <h4>IPLS course e-learning Model</h4>
-                        <h4 >on Date: <span>{{date('d-m-Y', strtotime($certificate->updated_at))}}</span></h4>
+                        @if ($certificate != NULL)
+                            <img src="{{asset('assets/images/brand/logo.png')}}" alt="">
+                            <h1>
+                                International Paediatiric Life Support 
+                                <br>
+                                IPLS E-Learnubg certificate
+                            </h1>
+                            <h4>Presented To</h4>
+                            <h1>{{$certificate->name}}</h1>
+                            <h4>score (<span> {{$certificate->degree}} </span>)</h4>
+                            <h4>for completion of the </h4>
+                            <h4>IPLS course e-learning Model</h4>
+                            <h4 >on Date: <span>{{date('d-m-Y', strtotime($certificate->updated_at))}}</span></h4>
 
-                        <h4 style="text-align: end">code: <span>{{$certificate->certificate}}</span></h4>
-
+                            <h4 style="text-align: end">code: <span>{{$certificate->certificate}}</span></h4>
+                        @endif
 
                     </div>
                 </div>
