@@ -43,9 +43,7 @@ class Student extends Authenticatable implements IMustVerifyMobile
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
         'remember_token',
-        'mobile_verify_code',
     ];
 
     /**

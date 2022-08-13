@@ -65,62 +65,62 @@
 
     </div><!--End side app-->
 </div>
-    <!-- Message Modal -->
-    <div class="modal fade" id="advertisement-form-modal" tabindex="-1" role="dialog"  aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="example-Modal3">Edit Exam</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form action="{{route('admin.approvedstudent')}}" method="POST">
-                    @csrf
-                    <div class="modal-body">
-                        <!-- Validation Errors -->
-                        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12">
-                                <div class="form-group">
-                                    <label class="form-label" for="title">Name:
-                                        <span id="name" name="name" > </span> 
-                                    </label>
-                                    <input type="text" class="form-control"  id="user_id" name="user_id" value="" required hidden>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="content">Contact</label>
-                                    <label class="form-label" for="content">Email:
-                                        <span id="email" name="email" > </span> 
-                                    </label>
-                                    <label class="form-label" for="content">Mobile Number:
-                                        <span id="mobile_number" name="mobile_number" > </span> 
-                                    </label>
-                                </div>
+<!-- Message Modal -->
+<div class="modal fade" id="advertisement-form-modal" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="example-Modal3">Edit Exam</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{route('admin.approvedstudent')}}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <!-- Validation Errors -->
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12">
+                            <div class="form-group">
+                                <label class="form-label" for="title">Name:
+                                    <span id="name" name="name" > </span> 
+                                </label>
+                                <input type="text" class="form-control"  id="user_id" name="user_id" value="" required hidden>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="content">Contact</label>
+                                <label class="form-label" for="content">Email:
+                                    <span id="email" name="email" > </span> 
+                                </label>
+                                <label class="form-label" for="content">Mobile Number:
+                                    <span id="mobile_number" name="mobile_number" > </span> 
+                                </label>
+                            </div>
 
-                                <div class="form-group">
-                                    <label class="form-label" for="governorate">governorate</label>
-                                    <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required >
-                                        <option label="Choose one">
-                                        </option>
-                                        @foreach ($governorate as $item)
-                                            <option value="{{$item->id}}" id="s-{{$item->id}}"> {{$item->governorate}}</option>
-                                        @endforeach
-                                        
-                                    </select>
+                            <div class="form-group">
+                                <label class="form-label" for="governorate">governorate</label>
+                                <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required >
+                                    <option label="Choose one">
+                                    </option>
+                                    @foreach ($governorate as $item)
+                                        <option value="{{$item->id}}" id="s-{{$item->id}}"> {{$item->governorate}}</option>
+                                    @endforeach
+                                    
+                                </select>
 
-                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-success mt-1">Save</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success mt-1">Save</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 
 <script>
