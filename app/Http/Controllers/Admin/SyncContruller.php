@@ -53,9 +53,13 @@ class SyncContruller extends Controller
         
         foreach ($request->StudentExam as $row) {
             $StudentExam= StudentExam::find($row['id']);
-
             $StudentExam->degree = $row['degree'];
             $StudentExam->save();
+
+            $Student= Student::find($row['user_id']);
+            $Student->certificate = "fff";
+            $Student->save();
+
         }
 
         return response()->json( $StudentExam);
