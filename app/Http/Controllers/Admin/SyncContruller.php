@@ -54,7 +54,7 @@ class SyncContruller extends Controller
         foreach ($request->StudentExam as $row) {
             $StudentExam= StudentExam::find($row['id']);
 
-            $StudentExam->degree = 18;
+            $StudentExam->degree = $row['degree'];
             $StudentExam->save();
         }
 
