@@ -56,7 +56,7 @@ class SyncContruller extends Controller
         //     $StudentExam->degree = $row->degree;
         // }
 
-        return response()->json(['$StudentExam'=>  $request->all()]);
+        return response()->json( $request->all());
 
     }
 
