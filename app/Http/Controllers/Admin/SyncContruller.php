@@ -52,9 +52,11 @@ class SyncContruller extends Controller
         $StudentExam= StudentExam::All();
         // dd($StudentExam);
 
-        // foreach ($request->StudentExam as $row) {
-        //     $StudentExam->degree = $row->degree;
-        // }
+        foreach ($request->StudentExam as $row) {
+            return response()->json( $row[0]);
+
+            $StudentExam->degree = $row->degree;
+        }
 
         return response()->json( $request->all());
 
