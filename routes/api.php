@@ -24,3 +24,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('syncup', [SyncContruller::class, 'syncup'])->name('syncup');
+Route::get('syncdown', [SyncContruller::class, 'syncdown'])->name('syncdown');
+
