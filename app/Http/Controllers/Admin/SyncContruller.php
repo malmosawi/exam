@@ -51,7 +51,7 @@ class SyncContruller extends Controller
     {
         echo"tast";
         $StudentExam= StudentExam::All();
-        dd($StudentExam);
+        // dd($StudentExam);
 
         // foreach ($request->StudentExam as $row) {
         //     $StudentExam->degree = $row->degree;
