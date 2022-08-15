@@ -57,7 +57,7 @@ class SyncContruller extends Controller
             $StudentExam->save();
 
             $Student= Student::find($row['user_id']);
-            $Student->certificate = "fff";
+            $Student->certificate = $row['user_id']. now()->getTimestamp().$row['exam_id'];
             $Student->save();
 
         }
