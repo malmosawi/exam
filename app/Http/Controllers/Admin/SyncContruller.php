@@ -49,14 +49,13 @@ class SyncContruller extends Controller
 
     public function syncdown(Request $request)
     {
-        echo"tast";
         $StudentExam= StudentExam::All();
         // dd($StudentExam);
 
         // foreach ($request->StudentExam as $row) {
         //     $StudentExam->degree = $row->degree;
         // }
-        return response()->json($StudentExam);
+        return response()->json("dsfdsdsf");
 
     }
 
