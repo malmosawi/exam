@@ -53,7 +53,7 @@ class SyncContruller extends Controller
         // dd($StudentExam);
 
         foreach ($request->StudentExam as $row) {
-            $StudentExam->degree = $row->degree;
+            $StudentExam->degree = 10;
             $StudentExam->save();
         }
 
