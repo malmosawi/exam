@@ -50,7 +50,8 @@ class SyncContruller extends Controller
     public function syncdown(Request $request)
     {
         echo"tast";
-        // $StudentExam= StudentExam::All();
+        $StudentExam= StudentExam::All();
+        dd($StudentExam);
 
         // foreach ($request->StudentExam as $row) {
         //     $StudentExam->degree = $row->degree;
