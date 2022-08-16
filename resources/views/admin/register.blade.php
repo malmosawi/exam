@@ -41,10 +41,10 @@
                                                     <span class="input-group-addon bg-white"><i class="fa fa-unlock-alt  w-4"></i></span>
                                                     <input id="password_confirmation" type="password" class="form-control" placeholder="password_confirmation"  name="password_confirmation" required />
                                                 </div>
-                                                <div class="input-group mb-4">
+                                                {{-- <div class="input-group mb-4">
                                                     <span class="input-group-addon bg-white"><i class="fa fa-institution  w-4"></i></span>
                                                     <div class="form-group ">
-                                                        <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required>
+                                                        <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" >
                                                             <option label="Choose one">
                                                             </option>
                                                             @foreach ($governorate as $item)
@@ -53,8 +53,7 @@
                                                         </select>
                                                     </div>
     
-                                                    {{-- <input id="governorate" type="text" class="form-control" placeholder="governorate"  name="governorate" required /> --}}
-                                                </div>
+                                                </div> --}}
 
                                                 {{-- <div class="form-group">
                                                     <label class="custom-control custom-checkbox">
