@@ -224,6 +224,7 @@
     <script>
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
        $(document).on('click', '.edit', function(){
+        alert("sfasd");
 
             $('#user-form-modal').find('#edit').attr('data-id','1');
             $('#id').val($(this).attr('data-id'));
