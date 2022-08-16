@@ -223,8 +223,6 @@
     <script>
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
        $(document).on('click', '.edit', function(){
-        alert($(this).attr('data-id'));
-
             // $('#user-form-modal').find('#edit').attr('data-id','1');
             $('#id').val($(this).attr('data-id'));
             $('#title').val($(this).parents('tr').find('.title').text());
