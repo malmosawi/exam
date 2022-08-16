@@ -42,7 +42,8 @@
                                             <td>{{$i+1}}</td>
                                             <td class="text-nowrap align-middle title">{{$item->title}}</td>
                                             <td class="text-nowrap align-middle date"><span>{{$item->date}}</span></td>
-                                            <td class="text-nowrap align-middle status"><span>{{($item->status==1)?'Active':'Inactive'}}</span></td>
+                                            <td class="text-nowrap align-middle "><span>{{($item->status==1)?'Active':'Inactive'}}</span></td>
+                                            <td class="text-nowrap align-middle status"><span>{{($item->status)}}</span></td>
                                             <td class="text-center align-middle">
                                                 <div class="btn-group align-top">
                                                     <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
