@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\AdminPrpfileContruller;
 use App\Http\Controllers\Admin\ExamContruller;
 use App\Http\Controllers\Admin\AdvertisementContruller;
 use App\Http\Controllers\Admin\AdminContruller;
-use App\Http\Controllers\Admin\ExamcenterContruller;
+use App\Http\Controllers\Admin\ExamCenterContruller;
 use App\Http\Controllers\Admin\SyncContruller;
 
 
