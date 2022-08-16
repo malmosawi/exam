@@ -26,7 +26,6 @@
 								@endif
 								@if (Route::is('admin.*')) 
 												{{Auth::guard('admin')->user()->name}}
-												{{Auth::guard('admin')->user()->governorate}}
 
 											</div>
 										</div>
