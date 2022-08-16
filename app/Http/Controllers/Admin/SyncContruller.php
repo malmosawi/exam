@@ -60,6 +60,11 @@ class SyncContruller extends Controller
             $Student->certificate = $row['user_id']. now()->getTimestamp().$row['exam_id'];
             $Student->save();
 
+            $exam=Exam::find($row['exam_id']);
+            $exam->status = 0;
+            $exam->save();
+
+
         }
 
         return response()->json( $StudentExam);

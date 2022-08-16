@@ -6,6 +6,8 @@
 								<img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img main-logo" alt="Hogo logo">
 								<img src="{{asset('assets/images/brand/icon.png')}}" class="header-brand-img icon-logo" alt="Hogo logo">
 							</a><!-- logo-->
+							{{Auth::guard('student')->user()->name}}
+
 							<a id="horizontal-navtoggle" class="animated-arrow hor-toggle"><span></span></a>
 							<a href="#" data-toggle="search" class="nav-link nav-link  navsearch"><i class="fa fa-search"></i></a><!-- search icon -->
 							<div class="d-flex order-lg-2 ml-auto header-rightmenu">
@@ -19,7 +21,7 @@
 										<i class="fe fe-bell "></i>
 										<span class="pulse bg-success"></span>
 									</a> --}}
-									<div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
+									{{-- <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow ">
 										<a href="#" class="dropdown-item text-center">4 New Notifications</a>
 										<div class="dropdown-divider"></div>
 										<a href="#" class="dropdown-item d-flex pb-3">
@@ -60,7 +62,7 @@
 										</a>
 										<div class="dropdown-divider"></div>
 										<a href="#" class="dropdown-item text-center">View all Notifications</a>
-									</div>
+									</div> --}}
 								</div><!-- notifications -->
 								<div class="dropdown header-user">
 									<a class="nav-link leading-none siderbar-link"  data-toggle="sidebar-right" data-target=".sidebar-right">
