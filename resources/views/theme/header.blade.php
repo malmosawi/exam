@@ -6,7 +6,7 @@
 								<img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img main-logo" alt="Hogo logo">
 								<img src="{{asset('assets/images/brand/icon.png')}}" class="header-brand-img icon-logo" alt="Hogo logo">
 							</a><!-- logo-->
-							<h1>dsfdsafdsf{{Auth::guard('admin')->user()->name}}
+							<h1>{{Auth::guard('admin')->user()->governorate}}
 							</h1>
 
 							<a id="horizontal-navtoggle" class="animated-arrow hor-toggle"><span></span></a>
