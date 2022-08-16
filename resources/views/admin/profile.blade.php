@@ -48,17 +48,19 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12">
-                                                        <div class="form-group" >
-                                                            <label class="form-label" for="governorate">Governorate</label>
-                                                            <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required value="{{$profile->governorate}}">
-                                                                <option label="Choose one">
-                                                                </option>
-                                                                @foreach ($governorate as $item)
-                                                                    <option value="{{$item->id}}" @if(old('governorate') == $item->id || $item->id == $profile->governorate) selected @endif> {{$item->governorate}}</option>
-                                                                @endforeach
-                                                                
-                                                            </select>
-                                                        </div>
+                                                        @if ($profile->name != 0)
+                                                            <div class="form-group" >
+                                                                <label class="form-label" for="governorate">Governorate</label>
+                                                                <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required value="{{$profile->governorate}}">
+                                                                    <option label="Choose one">
+                                                                    </option>
+                                                                    @foreach ($governorate as $item)
+                                                                        <option value="{{$item->id}}" @if(old('governorate') == $item->id || $item->id == $profile->governorate) selected @endif> {{$item->governorate}}</option>
+                                                                    @endforeach
+                                                                    
+                                                                </select>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
