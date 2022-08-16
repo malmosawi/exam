@@ -48,7 +48,7 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12">
-                                                        @if ($profile->name != 0)
+                                                        @if ($profile->type != 0)
                                                             <div class="form-group" >
                                                                 <label class="form-label" for="governorate">Governorate</label>
                                                                 <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required value="{{$profile->governorate}}">
