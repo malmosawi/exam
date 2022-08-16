@@ -49,6 +49,7 @@ class AdminContruller extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
             'governorate'=> $request->governorate,
+            'type'=> 1,
         ]);
 
         return redirect()->back();
