@@ -43,11 +43,10 @@
                                             <td class="text-nowrap align-middle title">{{$item->title}}</td>
                                             <td class="text-nowrap align-middle date"><span>{{$item->date}}</span></td>
                                             <td class="text-nowrap align-middle status"><span>{{($item->status==1)?'Active':'Inactive'}}</span></td>
-        
                                             <td class="text-center align-middle">
                                                 <div class="btn-group align-top">
-                                                    <button class="btn btn-sm btn-info badge add " data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
-                                                    <button class="btn btn-sm btn-info badge edit " data-target="#exampleModal3" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-sm btn-info badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
+                                                    <button class="btn btn-sm btn-info badge edit" data-target="#exampleModal3" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
                                                     <form action="{{route('admin.deleteexam', $item->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
@@ -224,9 +223,9 @@
     <script>
         var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
        $(document).on('click', '.edit', function(){
-        alert("sfasd");
+        alert($(this).attr('data-id'));
 
-            $('#user-form-modal').find('#edit').attr('data-id','1');
+            // $('#user-form-modal').find('#edit').attr('data-id','1');
             $('#id').val($(this).attr('data-id'));
             $('#title').val($(this).parents('tr').find('.title').text());
             $('#date').val($(this).parents('tr').find('.date').text());
