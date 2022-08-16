@@ -46,7 +46,7 @@
                                             <td class="text-center align-middle">
                                                 <div class="btn-group align-top">
                                                     <button class="btn btn-sm btn-info badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
-                                                    <button class="btn btn-sm btn-info badge edit" data-target="#exampleModal3" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
+                                                    <button class="btn btn-sm btn-info badge edit" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
                                                     <form action="{{route('admin.deleteexam', $item->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
