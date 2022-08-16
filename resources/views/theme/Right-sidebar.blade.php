@@ -26,8 +26,11 @@
 								@endif
 								@if (Route::is('admin.*')) 
 												{{Auth::guard('admin')->user()->name}}
+												{{Auth::guard('admin')->user()->type}}
+
 											</div>
 										</div>
+										
 										<a class="dropdown-item  border-top" href="{{route('admin.studentpass')}}">
 											<i class="dropdown-icon fa fa-graduation-cap "></i> Students 
 										</a>
