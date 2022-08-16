@@ -45,12 +45,12 @@
                                             <td class="text-nowrap align-middle status"><span>{{($item->status==1)?'Active':'Inactive'}}</span></td>
                                             <td class="text-center align-middle">
                                                 <div class="btn-group align-top">
-                                                    <button class="btn btn-sm btn-info badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
+                                                    <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
                                                     <button class="btn btn-sm btn-info badge edit" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
                                                     <form action="{{route('admin.deleteexam', $item->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn btn-sm btn-primary badge" type="submit"><i class="fa fa-close"></i></button>
+                                                        <button class="btn btn-sm btn-danger badge" type="submit"><i class="fa fa-close"></i></button>
                                                     </form>
                                                 </div>
                                             </td>
