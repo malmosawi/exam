@@ -30,19 +30,20 @@
 
 											</div>
 										</div>
-										
-										<a class="dropdown-item  border-top" href="{{route('admin.studentpass')}}">
-											<i class="dropdown-icon fa fa-graduation-cap "></i> Students 
-										</a>
-										<a class="dropdown-item  border-top" href="{{route('admin.getstudent',[1])}}">
-											<i class="dropdown-icon fa fa-users "></i> Students Approved
-										</a>
-										<a class="dropdown-item border-top" href="{{route('admin.getstudent',[-1])}}">
-											<i class="dropdown-icon  fa fa-user-times"></i> Students Rejact
-										</a>
-										<a class="dropdown-item border-top" href="{{route('admin.advertisement')}}">
-											<i class="dropdown-icon  fa fa-audio-description"></i> Advertisement
-										</a>
+										@if (Auth::guard('admin')->user()->type != 0 )
+											<a class="dropdown-item  border-top" href="{{route('admin.studentpass')}}">
+												<i class="dropdown-icon fa fa-graduation-cap "></i> Students 
+											</a>
+											<a class="dropdown-item  border-top" href="{{route('admin.getstudent',[1])}}">
+												<i class="dropdown-icon fa fa-users "></i> Students Approved
+											</a>
+											<a class="dropdown-item border-top" href="{{route('admin.getstudent',[-1])}}">
+												<i class="dropdown-icon  fa fa-user-times"></i> Students Rejact
+											</a>
+											<a class="dropdown-item border-top" href="{{route('admin.advertisement')}}">
+												<i class="dropdown-icon  fa fa-audio-description"></i> Advertisement
+											</a>
+										@endif
 										<a class="dropdown-item border-top" href="{{route('admin.admins')}}">
 											<i class="dropdown-icon  fa fa-user-md"></i> Admins
 										</a>
