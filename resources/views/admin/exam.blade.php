@@ -42,7 +42,7 @@
                                             <td>{{$i+1}}</td>
                                             <td class="text-nowrap align-middle title">{{$item->title}}</td>
                                             <td class="text-nowrap align-middle date"><span>{{$item->date}}</span></td>
-                                            <td class="text-nowrap align-middle status"><span>{{$item->status}}</span></td>
+                                            <td class="text-nowrap align-middle status"><span>{{($item->status==1)?'Active':'Inactive'}}</span></td>
         
                                             <td class="text-center align-middle">
                                                 <div class="btn-group align-top">
