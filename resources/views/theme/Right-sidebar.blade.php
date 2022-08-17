@@ -29,7 +29,6 @@
 
 											</div>
 										</div>
-										@if (Auth::guard('admin')->user()->type != 0 )
 											<a class="dropdown-item  border-top" href="{{route('admin.studentpass')}}">
 												<i class="dropdown-icon fa fa-graduation-cap "></i> Students 
 											</a>
@@ -42,13 +41,14 @@
 											<a class="dropdown-item border-top" href="{{route('admin.advertisement')}}">
 												<i class="dropdown-icon  fa fa-audio-description"></i> Advertisement
 											</a>
+										@if (Auth::guard('admin')->user()->type == 0 )
+											<a class="dropdown-item border-top" href="{{route('admin.admins')}}">
+												<i class="dropdown-icon  fa fa-user-md"></i> Admins
+											</a>
+											<a class="dropdown-item border-top" href="{{route('admin.examcenter')}}">
+												<i class="dropdown-icon  fa fa-institution"></i> Exam Center
+											</a>
 										@endif
-										<a class="dropdown-item border-top" href="{{route('admin.admins')}}">
-											<i class="dropdown-icon  fa fa-user-md"></i> Admins
-										</a>
-										<a class="dropdown-item border-top" href="{{route('admin.examcenter')}}">
-											<i class="dropdown-icon  fa fa-institution"></i> Exam Center
-										</a>
 
 								@endif
 
