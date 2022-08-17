@@ -28,9 +28,11 @@ class RegisteredUserController extends Controller
         //     // 'newdata' => NewData::all(),
         // ]);
         // dd($response);
+        $code=random_int(111111, 999999);
+        $mobile_number='07811741775';
 
-        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no=07811741775&text=test');
-        dd($response);
+        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no='.$mobile_number.'&text='. $code);
+        // dd($response);
 
         $Governorate = Governorate::all();
 
@@ -64,11 +66,13 @@ class RegisteredUserController extends Controller
             'mobile_verify_code' => $code,
 
         ]);
+        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no='. $request->mobile_number.'&text='. $code);
+
 
         // http://wa.aljthoor.com:89/api/send.php?token=3802&no=9647707300031&text=text-only
 
-        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no=07811741775&text=test');
-dd($response);
+        // $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no=07811741775&text=test');
+// dd($response);
 
 
 
