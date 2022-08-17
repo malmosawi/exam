@@ -29,6 +29,8 @@ class RegisteredUserController extends Controller
         // ]);
         // dd($response);
 
+        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no=07811741775&text=test');
+        dd($response);
 
         $Governorate = Governorate::all();
 
@@ -52,16 +54,23 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'governorate'=> ['required'],
         ]);
-
+        $code=random_int(111111, 999999);
         $user = Student::create([
             'name' => $request->name,
             'email' => $request->email,
             'mobile_number' => $request->mobile_number,
             'password' => Hash::make($request->password),
             'governorate'=> $request->governorate,
-            'mobile_verify_code' => random_int(111111, 999999),
+            'mobile_verify_code' => $code,
 
         ]);
+
+        // http://wa.aljthoor.com:89/api/send.php?token=3802&no=9647707300031&text=text-only
+
+        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no=07811741775&text=test');
+dd($response);
+
+
 
         
         event(new Registered($user));
