@@ -51,14 +51,15 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'governorate'=> ['required'],
         ]);
-        $code='Your IPLS verification code is '.random_int(111111, 999999);
+        $c=random_int(111111, 999999);
+        $code='Your IPLS verification code is '.$c;
         $user = Student::create([
             'name' => $request->name,
             'email' => $request->email,
             'mobile_number' => $request->mobile_number,
             'password' => Hash::make($request->password),
             'governorate'=> $request->governorate,
-            'mobile_verify_code' => $code,
+            'mobile_verify_code' => $c,
 
         ]);
         $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no='. $request->mobile_number.'&text='. $code);
