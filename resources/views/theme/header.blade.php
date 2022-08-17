@@ -7,8 +7,8 @@
 								<img src="{{asset('assets/images/brand/icon.png')}}" class="header-brand-img icon-logo" alt="Hogo logo">
 							</a><!-- logo-->
 
-							<a id="horizontal-navtoggle" class="animated-arrow hor-toggle"><span></span></a>
-							<a href="#" data-toggle="search" class="nav-link nav-link  navsearch"><i class="fa fa-search"></i></a><!-- search icon -->
+							{{-- <a id="horizontal-navtoggle" class="animated-arrow hor-toggle"><span></span></a> --}}
+							{{-- <a href="#" data-toggle="search" class="nav-link nav-link  navsearch"><i class="fa fa-search"></i></a><!-- search icon --> --}}
 							<div class="d-flex order-lg-2 ml-auto header-rightmenu">
 								<div class="dropdown">
 									<a  class="nav-link icon full-screen-link" id="fullscreen-button">
