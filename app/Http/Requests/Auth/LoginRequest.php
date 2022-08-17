@@ -32,7 +32,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string'],
+            'mobile_number' => ['required', 'string'],
             'password' => ['required', 'string'],
         ];
     }
@@ -52,7 +52,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'mobile_number' => trans('auth.failed'),
             ]);
         }
 
