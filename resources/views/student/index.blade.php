@@ -38,7 +38,7 @@
                 <div class="card">
                     <div class="card-header ">
                         <h3 class="card-title ">Certificate</h3>
-                        @if ($certificate != NULL)
+                        @if ($certificate->certificate != null)
                             <div class="card-options">
                                 <a href="#" class="card-options-collapse" data-toggle="card-collapse"><i class="fe fe-chevron-up"></i></a>
                                 <a href="{{route('student.printCertificate',Auth::guard('student')->user()->id)}}" class="card-options-collapse" ><i class="fa fa-print"></i></a>
@@ -53,7 +53,7 @@
                         </div> --}}
                     </div>
                     <div class="card-body text-center">
-                        @if ($certificate != '')
+                        @if ($certificate->certificate != null)
                             <img src="{{asset('assets/images/brand/logo.png')}}" alt="">
                             <h1>
                                 International Paediatiric Life Support 
