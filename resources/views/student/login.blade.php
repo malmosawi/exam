@@ -22,7 +22,7 @@
                                         <p class="text-muted">Sign In to your account</p>
                                         <div class="input-group mb-3">
                                             <span class="input-group-addon bg-white"><i class="fa fa-user"></i></span>
-                                            <input  id="email" type="text" class="form-control" placeholder="email" type="text" name="email" :value="old('email')" required autofocus >
+                                            <input  id="mobile_number" type="text" class="form-control" placeholder="mobile_number" type="text" name="mobile_number" :value="old('mobile_number')" required autofocus >
                                         </div>
                                         <div class="input-group mb-4">
                                             <span class="input-group-addon bg-white"><i class="fa fa-unlock-alt"></i></span>
