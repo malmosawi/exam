@@ -53,7 +53,7 @@
                         </div> --}}
                     </div>
                     <div class="card-body text-center">
-                        @if ($certificate->certificate != null)
+                        @if (isset($certificate) && $certificate->certificate != null)
                             <img src="{{asset('assets/images/brand/logo.png')}}" alt="">
                             <h1>
                                 International Paediatiric Life Support 

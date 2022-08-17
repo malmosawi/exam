@@ -50,13 +50,13 @@ class SyncContruller extends Controller
     public function syncdown(Request $request)
     {
         if (isset($request->StudentExam['id'])){
-            $St[0]=$request->StudentExam;
-         }else{
-            $St=$request->StudentExam;
-         }
-         
-         foreach ($St as $row) {
-             $StudentExam= StudentExam::find($row['id']);
+           $St[0]=$request->StudentExam;
+        }else{
+           $St=$request->StudentExam;
+        }
+        
+        foreach ($St as $row) {
+            $StudentExam= StudentExam::find($row['id']);
             $StudentExam->degree = $row['degree'];
             $StudentExam->save();
 
