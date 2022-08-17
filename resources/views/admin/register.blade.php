@@ -26,7 +26,7 @@
                                                 </div>
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon bg-white"><i class="fa fa-mobile w-4"></i></span>
-                                                    <input id="phone" type="phone" class="form-control" placeholder="Enter phone" name="phone" :value="old('phone')" required />
+                                                    <input id="mobile_number" type="text" class="form-control" placeholder="Mobile Number" name="mobile_number" :value="old('mobile_number')" required />
                                                 </div>
 
                                                 <div class="input-group mb-4">
