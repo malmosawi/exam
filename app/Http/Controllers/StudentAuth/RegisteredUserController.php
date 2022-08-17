@@ -28,11 +28,6 @@ class RegisteredUserController extends Controller
         //     // 'newdata' => NewData::all(),
         // ]);
         // dd($response);
-        $code=random_int(111111, 999999);
-        $mobile_number='07811741775';
-
-        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no='.$mobile_number.'&text='. $code);
-        // dd($response);
 
         $Governorate = Governorate::all();
 
@@ -56,7 +51,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'governorate'=> ['required'],
         ]);
-        $code=random_int(111111, 999999);
+        $code='Your IPLS verification code is '.random_int(111111, 999999);
         $user = Student::create([
             'name' => $request->name,
             'email' => $request->email,
