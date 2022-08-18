@@ -10,7 +10,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="text-center mb-6">
-                                        <img src="../assets/images/brand/logo.png" class="" alt="">
+                                        <img src="{{asset('assets/images/brand/logo.png')}}" class="" alt="">
                                     </div>
                                     <h3>admin Login</h3>
                                     <!-- Session Status -->

@@ -11,13 +11,9 @@
 									<div class="card">
 										<div class="card-body">
 
-                                            <x-guest-layout>
-                                                <x-auth-card>
-                                                    <x-slot name="logo">
                                                         <a href="/">
-                                                            <img src="../assets/images/brand/logo.png" class="" alt="">
+                                                            <img src="{{asset('assets/images/brand/logo.png')}}" class="" alt="">
                                                         </a>
-                                                    </x-slot>
 
 
                                                     <div class="mb-4 text-sm text-gray-600">
@@ -54,8 +50,6 @@
                                                             </div>
                                                         </form>
                                                     </div>
-                                                </x-auth-card>
-                                            </x-guest-layout>
 
 
 										</div>
