@@ -43,7 +43,7 @@ Route::post('verify-mobile', [VerifyMobileController::class, '__invoke'])
             ->middleware(['throttle:6,1'])
             ->name('verification.verify-mobile');
 
-Route::view('resend', [VerifyMobileController::class, 'resendcreate'])->name('verification.resend');
-// Route::get('resend', [VerifyMobileController::class, 'resendcreate'])->name('verification.resend');
+Route::get('resend', [VerifyMobileController::class, 'resendcreate'])->name('verification.resend');
+Route::post('resend', [VerifyMobileController::class, 'resend']);
 
         
