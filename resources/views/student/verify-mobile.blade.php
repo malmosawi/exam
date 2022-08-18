@@ -74,7 +74,9 @@
 			</div>
 			<!-- page-content end -->
 <script>
-                setTimeout("alert('sdfdsd')", 100);
-
+                setTimeout("show()", 5000);
+function show() {
+    alert('sdfdsd')
+}
 </script>
 @endsection
