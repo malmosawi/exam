@@ -74,9 +74,9 @@
 			</div>
 			<!-- page-content end -->
 <script>
-    setTimeout("show()", 5000);
+    setTimeout("show()", 60000);
     function show() {
-        $('#resend').show();
+        $('#resend').removeAttr('hidden');
     }
 </script>
 @endsection
