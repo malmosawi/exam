@@ -47,7 +47,9 @@
                                             <td class="text-center align-middle">
                                                 @if ($item->status != 3)
                                                     <div class="btn-group align-top">
-                                                        <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
+                                                        @if ($item->status == 1)
+                                                            <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
+                                                        @endif
                                                         <button class="btn btn-sm btn-info badge edit" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
                                                         <form action="{{route('admin.deleteexam', $item->id)}}" method="POST">
                                                             @csrf
