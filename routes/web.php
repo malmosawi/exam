@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('student.index');
 });
 Route::get('/demo', function () {
     return view('demo');
