@@ -62,6 +62,6 @@ class VerifyMobileController extends Controller
 
     public function resendcreate()
     {
-        return view('student.resend-mobile.blade')->with('error', 0);
+        return view('student.resend-mobile')->with('error', 0);
     }
 }
