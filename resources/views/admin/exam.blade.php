@@ -232,7 +232,7 @@
             $('#id').val($(this).attr('data-id'));
             $('#title').val($(this).parents('tr').find('.title').text());
             $('#date').val($(this).parents('tr').find('.date').text());
-            if($(this).parents('tr').find('.status').text() == '0'){
+            if($(this).parents('tr').find('.status').text() == '1'){
                 $('#status').removeAttr('checked');
             }
         })
