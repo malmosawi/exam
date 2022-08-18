@@ -11,6 +11,8 @@ use App\Http\Controllers\Controller;
 use Twilio\Exceptions\TwilioException;
 use App\Providers\RouteServiceProvider;
 use Twilio\Exceptions\ConfigurationException;
+use Illuminate\Support\Facades\Http;
+
 
 class VerifyMobileController extends Controller
 {
@@ -82,7 +84,7 @@ class VerifyMobileController extends Controller
         $c=random_int(111111, 999999);
         $code='Your IPLS verification code is '.$c;
 
-        // dd($request->mobile_number);
+        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no='. $request->mobile_number.'&text='. $code);
         
         $user->mobile_number =$request->mobile_number;
         $user->mobile_verify_code =$c;
