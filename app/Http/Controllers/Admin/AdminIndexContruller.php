@@ -84,6 +84,8 @@ class AdminIndexContruller extends Controller
 
         // dd('dfdsf'. $Student);
 
+       //jklgkl 
+
     }
     public function studentpass()
     {
