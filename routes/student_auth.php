@@ -44,6 +44,6 @@ Route::post('verify-mobile', [VerifyMobileController::class, '__invoke'])
             ->name('verification.verify-mobile');
 
 Route::get('resend', [VerifyMobileController::class, 'resendcreate'])->name('verification.resend');
-Route::post('resend', [VerifyMobileController::class, 'resend']);
+// Route::post('resend', [VerifyMobileController::class, 'resend']);
 
         
