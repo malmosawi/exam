@@ -21,8 +21,7 @@
 
 
                                                     <div class="mb-4 text-sm text-gray-600">
-                                                        Didn’t recieve a text message?
-                                                        No problem, simply re-enter your mobile phone number and we will send you another verification code.
+                                                        {{ __('Thanks for signing up! Before getting started, you need to verify your mobile phone number.') }}
                                                     </div>
 
                                                     <div class="text-sm text-gray-600">
