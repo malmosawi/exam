@@ -76,7 +76,7 @@
 <script>
                 setTimeout("show()", 5000);
 function show() {
-    alert('sdfdsd')
+    alert('show')
 }
 </script>
 @endsection
