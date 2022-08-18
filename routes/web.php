@@ -16,9 +16,10 @@ use App\Http\Controllers\Student\StudentPrpfile;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::middleware(['isStudent', 'verify.mobile'])->group(function(){
 
-Route::get('/', [StudentIndex::class, 'create']);
-
+    Route::get('/', [StudentIndex::class, 'create']);
+});
 // Route::get('/', function () {
 //     return view('student.index');
 // });
