@@ -20,7 +20,7 @@ class ExamContruller extends Controller
 
     public function create()
     {
-        $exam=Exam::get();
+        $exam=Exam::orderBy('name', 'desc')->get();
 
         $governorate=Auth::guard('admin')->user()->governorate;
         $Student = Student::where('governorate',$governorate)
