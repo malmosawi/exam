@@ -45,7 +45,7 @@
                                             <td class="text-nowrap align-middle "><span>{{($item->status==1)?'Active':'Inactive'}}</span></td>
                                             <td class="text-nowrap align-middle status" hidden><span>{{($item->status)}}</span></td>
                                             <td class="text-center align-middle">
-                                                @if ($item->status == 3)
+                                                @if ($item->status != 3)
                                                     <div class="btn-group align-top">
                                                         <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
                                                         <button class="btn btn-sm btn-info badge edit" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
