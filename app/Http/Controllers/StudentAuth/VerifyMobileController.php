@@ -79,9 +79,13 @@ class VerifyMobileController extends Controller
                 'mobile_number' => ['unique:students'],
             ]);
         }
-        dd($request->mobile_number);
+        $c=random_int(111111, 999999);
+        $code='Your IPLS verification code is '.$c;
+
+        // dd($request->mobile_number);
         
         $user->mobile_number =$request->mobile_number;
+        $user->mobile_verify_code =$c;
         $user->save();
 
 
