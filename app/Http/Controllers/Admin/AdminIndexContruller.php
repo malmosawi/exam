@@ -82,7 +82,7 @@ class AdminIndexContruller extends Controller
         }
         // $governorate=Auth::guard('admin')->user()->governorate;
 
-        dd('dfdsf'.$governorate);
+        dd('dfdsf'. $Student);
 
     }
     public function studentpass()
