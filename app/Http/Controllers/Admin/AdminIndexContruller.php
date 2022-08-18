@@ -72,7 +72,7 @@ class AdminIndexContruller extends Controller
         if(($approve == 1) || ($approve == -1)){
             $Student = Student::where('governorate',$governorate)
                     ->where('approve', $approve)
-                    ->where('certificate', null)
+                    // ->where('certificate', null)
                     ->get();
                     dd($Student);
 
