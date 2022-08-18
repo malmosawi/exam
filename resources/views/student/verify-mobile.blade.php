@@ -28,7 +28,7 @@
                                                         {{ __('Please enter the OTP sent to your number:') }} {{ auth('student')->user()->mobile_number }}
                                                     </div>
                                                     <div class="text-sm text-gray-600">
-                                                        <a href="">Resend code</a>
+                                                        {{ __('a href="">Resend code</a>') }}<
                                                     </div>
 
                                                     <!-- Validation Errors -->
