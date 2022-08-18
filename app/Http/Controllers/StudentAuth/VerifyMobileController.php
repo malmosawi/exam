@@ -90,6 +90,9 @@ class VerifyMobileController extends Controller
         $user->mobile_verify_code =$c;
         $user->save();
 
+        return redirect()->route('student.index');
+
+
 
     }
 }
