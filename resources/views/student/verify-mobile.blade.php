@@ -74,9 +74,9 @@
 			</div>
 			<!-- page-content end -->
 <script>
-                setTimeout("show()", 5000);
-function show() {
-    alert('show')
-}
+    setTimeout("show()", 5000);
+    function show() {
+        $('#resend').show();
+    }
 </script>
 @endsection
