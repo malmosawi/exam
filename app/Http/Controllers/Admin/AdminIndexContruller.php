@@ -69,20 +69,20 @@ class AdminIndexContruller extends Controller
     public function getstudent($approve = 1)
     {
         $governorate=Auth::guard('admin')->user()->governorate;
-        if(($approve == 1) || ($approve == -1)){
-            $Student = Student::where('governorate',$governorate)
-                    ->where('approve', $approve)
-                    // ->where('certificate', null)
-                    ->get();
-                    dd( $governorate);
+        // if(($approve == 1) || ($approve == -1)){
+        //     $Student = Student::where('governorate',$governorate)
+        //             ->where('approve', $approve)
+        //             // ->where('certificate', null)
+        //             ->get();
 
-            return view('admin.student', ['Student' => $Student])->with('error', 0);
+        //     return view('admin.student', ['Student' => $Student])->with('error', 0);
 
-        }else{
-            abort(404);
-        }
+        // }else{
+        //     abort(404);
+        // }
         // $governorate=Auth::guard('admin')->user()->governorate;
 
+        dd( $governorate);
 
     }
     public function studentpass()
