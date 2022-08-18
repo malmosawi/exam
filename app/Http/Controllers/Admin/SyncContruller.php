@@ -65,7 +65,7 @@ class SyncContruller extends Controller
             $Student->save();
 
             $exam=Exam::find($row['exam_id']);
-            $exam->status = 0;
+            $exam->status = 3;
             $exam->save();
 
 
