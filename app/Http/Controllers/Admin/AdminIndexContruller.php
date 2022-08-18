@@ -75,14 +75,14 @@ class AdminIndexContruller extends Controller
                     // ->where('certificate', null)
                     ->get();
 
-        //     return view('admin.student', ['Student' => $Student])->with('error', 0);
+            return view('admin.student', ['Student' => $Student])->with('error', 0);
 
         }else{
             abort(404);
         }
         // $governorate=Auth::guard('admin')->user()->governorate;
 
-        dd('dfdsf'. $Student);
+        // dd('dfdsf'. $Student);
 
     }
     public function studentpass()
