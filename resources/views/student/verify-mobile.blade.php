@@ -27,6 +27,10 @@
                                                     <div class="text-sm text-gray-600">
                                                         {{ __('Please enter the OTP sent to your number:') }} {{ auth('student')->user()->mobile_number }}
                                                     </div>
+                                                    <div class="text-sm text-gray-600">
+                                                        <a href="">Resend code</a>
+                                                    </div>
+
                                                     <!-- Validation Errors -->
                                                     <x-auth-validation-errors class="mb-4" :errors="$errors" class="text-danger"/>
 
@@ -47,6 +51,7 @@
                                                             <div class="mt-4">
 
                                                                 <button type="submint" class="btn btn-primary btn-block px-4">Verify</button>
+
 
                                                                 {{-- <x-button>
                                                                     {{ __('Verify') }}
