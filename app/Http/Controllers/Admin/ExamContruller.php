@@ -23,7 +23,8 @@ class ExamContruller extends Controller
         $exam=Exam::orderBy('status', 'desc')->get();
 
         $governorate=Auth::guard('admin')->user()->governorate;
-        $Student = Student::where('governorate',$governorate)
+        $Student = Student::leftJoin('student_exam', 'user_id', '=', 'students.id')
+                            ->where('governorate',$governorate)
                             ->where('approve', 1)
                             ->where('certificate', null)
                             ->where('mobile_verified_at','!=' ,null)
