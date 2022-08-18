@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('student.index');
-});
+Route::get('/', [StudentIndex::class, 'create']);
+
+// Route::get('/', function () {
+//     return view('student.index');
+// });
 Route::get('/demo', function () {
     return view('demo');
 });
