@@ -24,10 +24,10 @@
                                                         {{ __('Thanks for signing up! Before getting started, you need to verify your mobile phone number.') }}
                                                     </div>
 
-                                                    <div class="text-sm text-gray-600">
+                                                    <div class="text-sm text-gray-600" >
                                                         {{ __('Please enter the OTP sent to your number:') }} {{ auth('student')->user()->mobile_number }}
                                                     </div>
-                                                    <div class="text-sm text-gray-600">
+                                                    <div class="text-sm text-gray-600" id ="resend" hidden>
                                                         <a href="{{ route('student.verification.resend') }}">Resend code</a>
                                                     </div>
 
@@ -73,5 +73,8 @@
 
 			</div>
 			<!-- page-content end -->
+<script>
+                setTimeout("alert('sdfdsd')", 100);
 
+</script>
 @endsection
