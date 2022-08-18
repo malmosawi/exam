@@ -60,8 +60,8 @@ class VerifyMobileController extends Controller
     }
 
 
-    public function resend(Request $request)
+    public function resendcreate()
     {
-        dd($request->all());
+        return view('student.resend-mobile.blade')->with('error', 0);
     }
 }
