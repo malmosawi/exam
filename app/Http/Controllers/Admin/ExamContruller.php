@@ -38,9 +38,9 @@ class ExamContruller extends Controller
             'date' => ['required', 'date'],
         ]);
         if (isset($request->status)){
-            $request->status = 1;
-        }else{
             $request->status = 0;
+        }else{
+            $request->status = 1;
         }
         $exam = Exam::create([
             'title' => $request->title,
@@ -59,9 +59,9 @@ class ExamContruller extends Controller
             'date' => ['required', 'date'],
         ]);
         if (isset($request->status)){
-            $request->status = 1;
-        }else{
             $request->status = 0;
+        }else{
+            $request->status = 1;
         }
         $id = $request->id;
 
