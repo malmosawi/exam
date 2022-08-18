@@ -74,12 +74,13 @@ class AdminIndexContruller extends Controller
                     ->where('approve', $approve)
                     ->where('certificate', null)
                     ->get();
+                    dd($Student);
+
             return view('admin.student', ['Student' => $Student])->with('error', 0);
 
         }else{
             abort(404);
         }
-                            // dd($Student);
         // $governorate=Auth::guard('admin')->user()->governorate;
 
 
