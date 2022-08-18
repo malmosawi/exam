@@ -38,7 +38,7 @@ class AdminContruller extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'phone' => ['required', 'string', 'digits:11', 'unique:users'],
+            'mobile_number' => ['required', 'string', 'digits:11', 'unique:users'],
             'password' => ['required', Rules\Password::defaults()],
             'governorate'=> ['required'],
         ]);
@@ -46,7 +46,7 @@ class AdminContruller extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'phone' => $request->phone,
+            'mobile_number' => $request->mobile_number,
             'password' => Hash::make($request->password),
             'governorate'=> $request->governorate,
             'type'=> 1,
@@ -60,7 +60,7 @@ class AdminContruller extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'phone' => ['required', 'string', 'digits:11'],
+            'mobile_number' => ['required', 'string', 'digits:11'],
             'governorate'=> ['required'],
         ]);
         $id = $request->id;
@@ -68,13 +68,13 @@ class AdminContruller extends Controller
         if(!($user->email == $request->email)){
             $request->validate(['email' => ['unique:users'],]);
         }
-        if(!($user->phone == $request->phone)){
-            $request->validate(['phone' => ['unique:users'],]);
+        if(!($user->mobile_number == $request->mobile_number)){
+            $request->validate(['mobile_number' => ['unique:users'],]);
         }
         
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->phone =$request->phone;
+        $user->mobile_number =$request->mobile_number;
         $user->governorate =$request->governorate;
         $user->save();
         

@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\StudentAuth;
+use App\Models\Student;
+
 
 use Carbon\Carbon;
 use Twilio\Rest\Client;
@@ -63,5 +65,25 @@ class VerifyMobileController extends Controller
     public function resendcreate()
     {
         return view('student.resend-mobile')->with('error', 0);
+    }
+
+    public function resend(Request $request )
+    {
+        $request->validate([
+            'mobile_number' => ['required', 'numeric', 'digits:11'],
+        ]);
+
+        $user = Student::find(auth('student')->user()->id);
+        if(!($user->mobile_number == $request->mobile_number)){
+            $request->validate([
+                'mobile_number' => ['unique:students'],
+            ]);
+        }
+        dd($request->mobile_number);
+        
+        $user->mobile_number =$request->mobile_number;
+        $user->save();
+
+
     }
 }

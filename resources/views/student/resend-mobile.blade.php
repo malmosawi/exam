@@ -21,16 +21,10 @@
 
 
                                                     <div class="mb-4 text-sm text-gray-600">
-                                                        Didn’t recieve a text message?
-                                                        No problem, simply re-enter your mobile phone number and we will send you another verification code.
+                                                        <h3>Didn’t recieve a text message?</h3>
+                                                        <p>No problem, simply re-enter your mobile phone number and we will send you another verification code.</p>
                                                     </div>
 
-                                                    <div class="text-sm text-gray-600">
-                                                        {{ __('Please enter the OTP sent to your number:') }} {{ auth('student')->user()->mobile_number }}
-                                                    </div>
-                                                    <div class="text-sm text-gray-600">
-                                                        <a href="">Resend code</a>
-                                                    </div>
 
                                                     <!-- Validation Errors -->
                                                     <x-auth-validation-errors class="mb-4" :errors="$errors" class="text-danger"/>
