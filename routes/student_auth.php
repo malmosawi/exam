@@ -42,4 +42,7 @@ Route::view('verify-mobile','student.verify-mobile')->name('verification-mobile.
 Route::post('verify-mobile', [VerifyMobileController::class, '__invoke'])
             ->middleware(['throttle:6,1'])
             ->name('verification.verify-mobile');
+
+Route::post('resend', [VerifyMobileController::class, 'resend'])->name('verification.resend');
+
         

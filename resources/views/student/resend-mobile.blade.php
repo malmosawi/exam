@@ -28,18 +28,18 @@
                                                         {{ __('Please enter the OTP sent to your number:') }} {{ auth('student')->user()->mobile_number }}
                                                     </div>
                                                     <div class="text-sm text-gray-600">
-                                                        <a href="{{ route('student.verification.resend') }}">Resend code</a>
+                                                        <a href="">Resend code</a>
                                                     </div>
 
                                                     <!-- Validation Errors -->
                                                     <x-auth-validation-errors class="mb-4" :errors="$errors" class="text-danger"/>
 
                                                     <div class="mt-4 flex items-center justify-between">
-                                                        <form method="POST" action="{{ route('student.verification.verify-mobile') }}">
+                                                        <form method="POST" action="{{ route('student.verification.resend') }}">
                                                             @csrf
                                                             <div class="input-group mb-4">
                                                                 <span class="input-group-addon bg-white"><i class="fa fa-check  w-4"></i></span>
-                                                                <input id="code" type="text" class="form-control" placeholder=" OTP Code"  name="code" required autofocus/>
+                                                                <input id="mobile_number" type="text" class="form-control" placeholder="mobile_number"  name="mobile_number" required value=" {{ auth('student')->user()->mobile_number }}"/>
                                                             </div>
             
                                                             {{-- <div>
@@ -50,7 +50,7 @@
 
                                                             <div class="mt-4">
 
-                                                                <button type="submint" class="btn btn-primary btn-block px-4">Verify</button>
+                                                                <button type="submint" class="btn btn-primary btn-block px-4">Resend</button>
 
 
                                                                 {{-- <x-button>

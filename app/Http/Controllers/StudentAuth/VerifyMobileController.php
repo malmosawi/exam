@@ -58,4 +58,10 @@ class VerifyMobileController extends Controller
         return back()->withErrors(['error' => __('mobile.error_code')]);
 
     }
+
+
+    public function resend(Request $request)
+    {
+        dd($request->all());
+    }
 }
