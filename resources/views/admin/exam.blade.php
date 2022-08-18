@@ -42,12 +42,12 @@
                                             <td>{{$i+1}}</td>
                                             <td class="text-nowrap align-middle title">{{$item->title}}</td>
                                             <td class="text-nowrap align-middle date"><span>{{$item->date}}</span></td>
-                                            <td class="text-nowrap align-middle "><span>{{($item->status==1)?'Active':(($item->status==0)?'Inactive':'closed')}}</span></td>
+                                            <td class="text-nowrap align-middle "><span>{{($item->status==0)?'Active':(($item->status==1)?'Inactive':'closed')}}</span></td>
                                             <td class="text-nowrap align-middle status" hidden><span>{{($item->status)}}</span></td>
                                             <td class="text-center align-middle">
                                                 @if ($item->status != 3)
                                                     <div class="btn-group align-top">
-                                                        @if ($item->status == 1)
+                                                        @if ($item->status == 0)
                                                             <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
                                                         @endif
                                                         <button class="btn btn-sm btn-info badge edit" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
