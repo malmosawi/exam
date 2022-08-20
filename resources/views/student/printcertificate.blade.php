@@ -15,7 +15,7 @@
             <h1>
                 International Paediatiric Life Support 
                 <br>
-                IPLS E-Learnubg certificate
+                IPLS E-Learning certificate
             </h1>
             <h4>Presented To</h4>
             <h1>{{$certificate->name}}</h1>
