@@ -23,7 +23,7 @@ class StudentIndex extends Controller
 
         $Certificate=StudentExam::join('students','students.id','user_id')
                                 ->where('user_id',$user)
-                                ->orderBy('studen_exam.id','desc')
+                                ->orderBy('student_exam.id','desc')
                                 // ->where('degree','>','19')
                                 ->first();
                                 // dd(var_dump($Certificate->user_id));
