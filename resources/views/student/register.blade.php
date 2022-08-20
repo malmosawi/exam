@@ -26,13 +26,13 @@
                                                 </div>
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon bg-white"><i class="fa fa-user-md w-4"></i></span>
-                                                    <div class="form-group ">
+                                                    
                                                         <select class="form-control select2 " data-placeholder="Choose one" id="type" name="type" required>
                                                             <option value="0">Doctor</option>
                                                             <option value="1">Student</option>
                                                             <option value="2">Nurse</option>
                                                         </select>
-                                                    </div>
+                                                   
     
                                                     {{-- <input id="governorate" type="text" class="form-control" placeholder="governorate"  name="governorate" required /> --}}
                                                 </div>
@@ -56,7 +56,7 @@
                                                 </div>
                                                 <div class="input-group mb-4">
                                                     <span class="input-group-addon bg-white"><i class="fa fa-institution  w-4"></i></span>
-                                                    <div class="form-group ">
+                                                   
                                                         <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required>
                                                             <option label="Choose one">
                                                             </option>
@@ -64,7 +64,7 @@
                                                                 <option value="{{$item->id}}">{{$item->governorate}}</option>
                                                             @endforeach
                                                         </select>
-                                                    </div>
+                                                    
     
                                                     {{-- <input id="governorate" type="text" class="form-control" placeholder="governorate"  name="governorate" required /> --}}
                                                 </div>
