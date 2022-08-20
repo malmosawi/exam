@@ -25,6 +25,23 @@
                                                     <input id="name" type="text" class="form-control" placeholder="Enter name" name="name" :value="old('name')" required autofocus />
                                                 </div>
                                                 <div class="input-group mb-4">
+                                                    <span class="input-group-addon bg-white"><i class="fa fa-institution  w-4"></i></span>
+                                                    <div class="form-group ">
+                                                        <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required>
+                                                            <option value="Doctor">Doctor</option>
+                                                            <option value="Student">Student</option>
+                                                            <option value="Nurse">Nurse</option>
+
+                                                            @foreach ($governorate as $item)
+                                                                <option value="{{$item->id}}">{{$item->governorate}}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+    
+                                                    {{-- <input id="governorate" type="text" class="form-control" placeholder="governorate"  name="governorate" required /> --}}
+                                                </div>
+
+                                                <div class="input-group mb-4">
                                                     <span class="input-group-addon bg-white"><i class="fa fa-mobile w-4"></i></span>
                                                     <input id="phone" type="phone" class="form-control" placeholder="Enter Mobile Number" name="mobile_number" :value="old('mobile_number')" required />
                                                 </div>
