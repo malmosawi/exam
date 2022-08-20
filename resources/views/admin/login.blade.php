@@ -53,10 +53,10 @@
                                             </div>
                                         </div>
                                         <div class="mt-6 btn-list">
-                                            <button type="button" class="btn btn-icon btn-facebook"><i class="fa fa-facebook"></i></button>
+                                            <a href="https://www.facebook.com/iplscourse/" type="button" class="btn btn-icon btn-facebook"><i class="fa fa-facebook"></i></a>
                                             <button type="button" class="btn btn-icon btn-google"><i class="fa fa-google"></i></button>
                                             <button type="button" class="btn btn-icon btn-twitter"><i class="fa fa-twitter"></i></button>
-                                            <button type="button" class="btn btn-icon btn-dribbble"><i class="fa fa-dribbble"></i></button>
+                                            <a href="http://iplscourse.org/" type="button" class="btn btn-icon btn-dribbble"><i class="fa fa-dribbble"></i></a>
                                         </div>
                                     </form>
                                 </div>
