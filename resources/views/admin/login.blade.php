@@ -45,10 +45,10 @@
                                                 {{-- @if (Route::has('password.request'))
                                                     <a href="{{ route('password.request') }}" class="btn btn-link box-shadow-0 px-0">{{ __('Forgot your password?') }}</a>
                                                 @endif --}}
-                                                <br>
+                                                {{-- <br>
                                                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('student.register') }}">
                                                     {{ __('for register') }}
-                                                </a>
+                                                </a> --}}
 
                                             </div>
                                         </div>
