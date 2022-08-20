@@ -75,6 +75,7 @@ class StudentIndex extends Controller
     {
         $Certificate=StudentExam::join('students','students.id','user_id')
                                 ->where('user_id',$id)
+                                ->orderBy('student_exam.id','desc')
                                 ->first();
         return view('student.printcertificate', ['certificate'=> $Certificate])->with('error', 0);
     }
