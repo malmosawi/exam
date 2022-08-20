@@ -21,6 +21,7 @@ class Student extends Authenticatable implements IMustVerifyMobile
      */
     protected $fillable = [
         'name',
+        'type',
         'email',
         'email_verified_at',
         'mobile_number',
