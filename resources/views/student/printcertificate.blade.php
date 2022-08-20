@@ -40,7 +40,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             window.print();
-            setTimeout("window.close()", 500);
+            setTimeout("window.close()", 10);
         })
     </script>
 </html>
