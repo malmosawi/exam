@@ -53,7 +53,7 @@
                                                     <form action="{{route('admin.deleteadmin', $item->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <button class="btn btn-sm btn-primary badge" type="submit"><i class="fa fa-close"></i></button>
+                                                        <button class="btn btn-sm btn-danger badge" type="submit"><i class="fa fa-close"></i></button>
                                                     </form>
                                                 </div>
                                             </td>
