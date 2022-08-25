@@ -31,8 +31,9 @@
                                         <tr>
                                             <th></th>
                                             <th >Name</th>
+                                            <th>Mobile Number</th>
                                             <th>Email</th>
-                                            <th>Governorate</th>
+                                            <th>Exam Center</th>
                                             <th class="text-center">Actions</th>
                                             <th ></th>
                                         </tr>
@@ -42,7 +43,7 @@
                                         <tr>
                                             <td>{{$i+1}}</td>
                                             <td class="text-nowrap align-middle name">{{$item->name}}</td>
-                                            <td class="text-nowrap align-middle phone">{{$item->phone}}</td>
+                                            <td class="text-nowrap align-middle mobile_number">{{$item->mobile_number}}</td>
                                             <td class="text-nowrap align-middle email">{{$item->email}}</td>
                                             <td class="text-nowrap align-middle governorate"><span>{{$item->governoratename}}</span></td>
         
@@ -103,15 +104,15 @@
                                     <input class="form-control" placeholder="Email"  name="email" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="phone">Phone</label>
-                                    <input class="form-control" placeholder="Phone"  name="phone" value="" required>
+                                    <label class="form-label" for="mobile_number">Mobile Number</label>
+                                    <input class="form-control" placeholder="Mobile Number"  name="mobile_number" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="email">Password</label>
-                                    <input class="form-control" placeholder="password"  name="password" value="" required>
+                                    <label class="form-label" for="password">Password</label>
+                                    <input class="form-control" placeholder="Password"  name="password" value="" required>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="email">Governorate</label>
+                                    <label class="form-label" for="governorate">Governorate</label>
                                     <select class="form-control select2 " data-placeholder="Choose one" id="governorate" name="governorate" required value="">
                                         <option label="Choose one">
                                         </option>
@@ -191,12 +192,9 @@
     $(document).on('click', '.edit', function(){
         $('#user-form-modal').find('#edit').attr('data-id','1');
         $('#id').val($(this).attr('data-id'));
-        $('#id').val();
         $('#name').val($(this).parents('tr').find('.name').text());
         $('#email').val($(this).parents('tr').find('.email').text());
-        $('#phone').val($(this).parents('tr').find('.phone').text());
-        id=$(this).attr('value');
-        $('#d option:eq('+id+')').prop('selected', true)
+        $('#mobile_number').val($(this).parents('tr').find('.mobile_number').text());
 
         
     })

@@ -82,9 +82,10 @@ class AdminContruller extends Controller
         return redirect()->back();
     }
 
-    public function destroy(User $exam)
+    public function destroy($id)
     {
-        $exam->delete();
+        $user = User::find($id);
+        $user->delete();
         return redirect()->back();
 
     }
