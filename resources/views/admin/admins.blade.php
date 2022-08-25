@@ -195,6 +195,8 @@
         $('#name').val($(this).parents('tr').find('.name').text());
         $('#email').val($(this).parents('tr').find('.email').text());
         $('#mobile_number').val($(this).parents('tr').find('.mobile_number').text());
+        id=$(this).attr('value');
+        $('#d option:eq('+id+')').prop('selected', true)
 
         
     })
