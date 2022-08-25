@@ -50,12 +50,11 @@
                                             <td class="text-center align-middle">
                                                 <div class="btn-group align-top">
                                                     <button class="btn btn-sm btn-primary badge edit " data-target="#advertisement-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}" value="{{$item->governorateid}}"><i class="fa fa-pencil-square-o"></i></button>
-                                                    <button class="btn btn-sm btn-danger badge add" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}" value="{{$item->governorateid}}"><i class="fa fa-close"></i></button>
-                                                    {{-- <form action="{{route('admin.deleteexam', $item->id)}}" method="POST">
+                                                    <form action="{{route('admin.deleteadmin', $item->id)}}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
                                                         <button class="btn btn-sm btn-primary badge" type="submit"><i class="fa fa-close"></i></button>
-                                                    </form> --}}
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

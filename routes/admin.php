@@ -54,6 +54,8 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('admins', [AdminContruller::class, 'create'])->name('admins');
         Route::post('admins', [AdminContruller::class, 'store']);
         Route::post('updateadmins', [AdminContruller::class, 'update'])->name('updateadmins');
+        Route::delete('deleteaadmin/{id}/force_delete', [AdminContruller::class, 'destroy'])->name('deleteaadmin');
+
 
 
         // offline
