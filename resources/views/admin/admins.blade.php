@@ -157,8 +157,8 @@
                                     <input type="number" class="form-control"  id="id" name="id" value="" required hidden>
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label" for="phone">phone</label>
-                                    <input class="form-control" placeholder="phone"  id="phone" name="phone" value="" required>
+                                    <label class="form-label" for="phone">Mobile Number</label>
+                                    <input class="form-control" placeholder="Mobile Number"  id="mobile_number" name="mobile_number" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="email">email</label>
