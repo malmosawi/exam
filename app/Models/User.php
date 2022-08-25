@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'email_verified_at',
-        'phone',
+        'mobile_number',
         'password',
         'governorate',
         'type',
