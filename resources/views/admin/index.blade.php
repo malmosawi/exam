@@ -161,8 +161,6 @@
 
     $(document).on('click', '.edit', function(){
         var user_id = Number($(this).attr('data-id'));
-        alert(user_id);
-        
         $('#user_id').val(user_id);
         $('#name').text($(this).parents('tr').find('.name').text());
         $('#email').text($(this).parents('tr').find('.email').text());

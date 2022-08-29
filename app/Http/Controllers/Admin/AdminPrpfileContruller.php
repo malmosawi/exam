@@ -39,9 +39,9 @@ class AdminPrpfileContruller extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
             // 'phone' => ['required', 'string', 'digits:11'],
-            'governorate'=> ['required'],
+            // 'governorate'=> ['required'],
         ]);
 
         $user = Auth::guard('admin')->user()->id;
@@ -51,7 +51,7 @@ class AdminPrpfileContruller extends Controller
         $profile->name = $request->name;        
         $profile->email = $request->email;        
         // $profile->phone = $request->phone;
-        $profile->governorate = $request->governorate;    
+        // $profile->governorate = $request->governorate;    
         $profile->save();
         
         $Governorate = Governorate::all();
