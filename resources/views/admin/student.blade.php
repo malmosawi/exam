@@ -27,9 +27,12 @@
                             <thead>
                                 <tr>
                                     <th></th>
+                                    @if (Auth::guard('admin')->user()->type == 0)
+                                        <th >Exam Center</th>
+                                    @endif
                                     <th >Name</th>
-                                        <th>Phone</th>
-                                        <th class="text-center">Actions</th>
+                                    <th>Mobile Number</th>
+                                    <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,6 +45,9 @@
                                     </td> --}}
                                     {{-- <td class="align-middle text-center"><img alt="image" class="avatar avatar-md rounded-circle" src="../assets/images/users/female/26.jpg"></td> --}}
                                     <td>{{$i+1}}</td>
+                                    @if (Auth::guard('admin')->user()->type == 0)
+                                        <td class="text-nowrap align-middle">{{$item->examcenter}}</td>
+                                    @endif
                                     <td class="text-nowrap align-middle">{{$item->name}}</td>
                                     <td class="text-nowrap align-middle"><span>{{$item->mobile_number}}</span></td>
                                     <td class="text-center align-middle">
@@ -86,6 +92,9 @@
                 data: {_token: CSRF_TOKEN, user_id: user_id, approve:approve},
                 dataType: 'json',
                 success: function(response){
+                    
+                    alert(th.parents('tr').html());
+
                     th.parents('tr').remove();
                 }
            });

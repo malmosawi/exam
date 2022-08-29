@@ -24,9 +24,9 @@ Route::prefix('student')->name('student.')->group(function(){
             Route::get('offlineindex', [StudentIndex::class, 'offlinecreate'])->name('offlineindex');
             Route::post('save', [StudentIndex::class, 'save'])->name('save');
 
-            Route::get('printCertificate/{id}', [StudentIndex::class, 'printCertificate'])->name('printCertificate');
-
-    });
+            
+        });
+        Route::get('printCertificate/{id}', [StudentIndex::class, 'printCertificate'])->name('printCertificate');
 
     require __DIR__.'/student_auth.php';
 });

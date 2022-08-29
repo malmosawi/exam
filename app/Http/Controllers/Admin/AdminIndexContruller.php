@@ -42,7 +42,6 @@ class AdminIndexContruller extends Controller
             $profile->governorate = $request->governorate;     
         }
         $profile->save();
-// dd($request->method());
         if($request->method()=='GET' ){
             return response()->json($profile);
         }else{
@@ -68,12 +67,15 @@ class AdminIndexContruller extends Controller
 
     public function getstudent($approve = 1)
     {
-        $governorate=Auth::guard('admin')->user()->governorate;
         if(($approve == 1) || ($approve == -1)){
-            $Student = Student::where('governorate',$governorate)
-                    ->where('approve', $approve)
-                    // ->where('certificate', null)
-                    ->get();
+            $Student = Student::join('governorate','students.governorate','governorate.id')
+                                ->where('students.certificate', null)
+                                ->where('approve', $approve);
+            if (Auth::guard('admin')->user()->type != 0) {
+                $governorate=Auth::guard('admin')->user()->governorate;
+                $Student=$Student->where('students.governorate',$governorate);
+            }
+            $Student=$Student->get(['students.*','students.id as stid','governorate.governorate as examcenter']);
 
             return view('admin.student', ['Student' => $Student])->with('error', 0);
 
@@ -89,14 +91,20 @@ class AdminIndexContruller extends Controller
     }
     public function studentpass()
     {
-        $governorate=Auth::guard('admin')->user()->governorate;
+       
         $Student = Student::join('student_exam','student_exam.user_id','students.id')
-                                ->join('exam','exam.id','student_exam.exam_id')
-                                ->where('governorate',$governorate)
-                                ->where('approve', 1)
+                            ->join('exam','exam.id','student_exam.exam_id')
+                            ->join('users','users.id','exam.admin_id')
+                            ->join('governorate','users.governorate','governorate.id');
+                if (Auth::guard('admin')->user()->type != 0) {
+                    $governorate=Auth::guard('admin')->user()->governorate;
+                    $Student=$Student->where('students.governorate',$governorate);
+                }
+                                // 
+        $Student=$Student->where('approve', 1)
                                 ->where('certificate','!=', null)
-                                ->get(['students.*','exam.title','exam.date','student_exam.degree']);
-            return view('admin.studentpass', ['Student' => $Student])->with('error', 0);
+                                ->get(['students.*','students.id as stid','exam.title','exam.date','student_exam.degree','governorate.governorate as examcenter']);
+        return view('admin.studentpass', ['Student' => $Student])->with('error', 0);
 
                             // dd($Student);
         // $governorate=Auth::guard('admin')->user()->governorate;

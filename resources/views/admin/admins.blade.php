@@ -35,7 +35,7 @@
                                             <th>Email</th>
                                             <th>Exam Center</th>
                                             <th class="text-center">Actions</th>
-                                            <th ></th>
+                                            
                                         </tr>
                                     </thead>
                                     <tbody>

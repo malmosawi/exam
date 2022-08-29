@@ -28,8 +28,14 @@
                                 <tr>
                                     <th></th>
                                     <th class="text-nowrap align-middle">Name</th>
-                                        <th class="text-center align-middle">exam date</th>
-                                        <th class="text-center align-middle">degree</th>
+                                    @if (Auth::guard('admin')->user()->type == 0)
+                                        <th class="text-center align-middle">Exam Center</th>
+                                    @endif
+                                    <th class="text-center align-middle">Exam Title</th>
+                                    <th class="text-center align-middle">Exam Date</th>
+                                    <th class="text-center align-middle">Degree</th>
+                                    <th class="text-center align-middle">certificate</th>
+                                            
 
                                 </tr>
                             </thead>
@@ -38,8 +44,17 @@
                                 <tr>
                                     <td>{{$i+1}}</td>
                                     <td class="text-nowrap align-middle">{{$item->name}}</td>
+                                    @if (Auth::guard('admin')->user()->type == 0)
+                                        <td class="text-center align-middle">{{$item->examcenter}}</td>
+                                    @endif
+                                    <td class="text-center align-middle">{{$item->title}} </td>
                                     <td class="text-center align-middle"> {{$item->date}}</td>
-                                    <td class="text-center align-middle">{{$item->degree}}</td>
+                                    <td class="text-center align-middle">{{$item->degree}} </td>
+                                    <td class="text-center align-middle">
+                                        <a  target="_blank" href="{{route('student.printCertificate',$item->stid)}}" class="card-options-collapse" >
+                                            <i class="fa fa-print"></i>
+                                        </a>
+                                    </td>
                                 </tr>
                                 @endforeach
 
