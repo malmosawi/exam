@@ -21,6 +21,7 @@
                                     <th></th>
                                     <th >Name</th>
                                     <th>Mobile Number</th>
+                                    <th>Regester Date</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
                             </thead>
@@ -36,6 +37,7 @@
                                     <td>{{$i+1}}</td>
                                     <td class="text-nowrap align-middle name">{{$item->name}}</td>
                                     <td class="text-nowrap align-middle mobile_number"><span>{{$item->mobile_number}}</span></td>
+                                    <td class="text-nowrap align-middle mobile_number"><span>{{$item->created_at}}</span></td>
 
                                     <td class="text-center align-middle">
                                         <div class="btn-group align-top">
