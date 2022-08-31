@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
             'mobile_number' => ['required', 'string', 'digits:11', 'unique:students'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'governorate'=> ['required'],
-            // 'type'=> ['required'],
+            'type'=> ['required'],
         ]);
         $c=random_int(111111, 999999);
         $code='Your IPLS verification code is '.$c;
@@ -60,7 +60,7 @@ class RegisteredUserController extends Controller
             'mobile_number' => $request->mobile_number,
             'password' => Hash::make($request->password),
             'governorate'=> $request->governorate,
-            // 'type'=> $request->type,
+            'type'=> $request->type,
             'mobile_verify_code' => $c,
 
         ]);
