@@ -35,6 +35,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::post('studentinexam', [ExamContruller::class, 'studentinexam'])->name('studentinexam');
         Route::post('editstudentinexam', [ExamContruller::class, 'editstudentinexam'])->name('editstudentinexam');
         Route::post('getstudentinexam', [ExamContruller::class, 'getstudentinexam'])->name('getstudentinexam');
+        Route::get('getstudentinexam2/{id}', [ExamContruller::class, 'getstudentinexam2'])->name('getstudentinexam');
 
         Route::delete('deleteexam/{id}/force_delete', [ExamContruller::class, 'destroy'])->name('deleteexam');
         // Route::resource('exam',ExamContruller::class);

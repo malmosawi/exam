@@ -132,6 +132,25 @@ class ExamContruller extends Controller
 
         return response()->json($response);
     }
+    public function getstudentinexam2($id)
+    {
+        
+        // if($request->method == 1){
+            $student=StudentExam::join('students','students.id','user_id')
+            ->where('exam_id',$id)
+            ->get(['student_exam.*','students.*','students.id as stid']);
+            // dd($student);
+        // }else{
+        //     $governorate=Auth::guard('admin')->user()->governorate;
+        //     $response['data'] = Student::where('governorate',$governorate)
+        //                         ->where('approve', 1)
+        //                         ->where('certificate', null)
+        //                         ->get();
+    
+        // }
+
+        return view('admin.studentinexam', ['Student'=> $student] );
+    }
 
 
 }
