@@ -51,14 +51,14 @@
                                                 <td class="text-center align-middle">
                                                     <div class="btn-group align-top">
                                                         <button class="btn btn-sm btn-danger badge  approve" type="button"
-                                                            data-id="{{ $item->id }}" value="-1"><i
+                                                            data-id="{{ $item->stid }}" value="-1"><i
                                                                 class="fa fa-close"></i></button>
                                                         <button class="btn btn-sm btn-primary badge  approve" type="button"
-                                                            data-id="{{ $item->id }}" value="1"><i
+                                                            data-id="{{ $item->stid }}" value="1"><i
                                                                 class="fa fa-check"></i></button>
                                                         <button class="btn btn-sm btn-warinag badge  edit"
                                                             data-target="#advertisement-form-modal" data-toggle="modal"
-                                                            type="button" data-id="{{ $item->id }}"
+                                                            type="button" data-id="{{ $item->stid }}"
                                                             value="{{ $item->governorate }}"><i
                                                                 class="fa fa-edit"></i></button>
 
