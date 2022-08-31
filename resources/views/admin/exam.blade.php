@@ -30,6 +30,9 @@
                                     <thead>
                                         <tr>
                                             <th></th>
+                                            @if (Auth::guard('admin')->user()->type == 0)
+                                                <th>Exam Center</th>
+                                            @endif
                                             <th >Title</th>
                                             <th>Date</th>
                                             <th>Status</th>
@@ -40,6 +43,10 @@
                                         @foreach ($Exam as $i=>$item)
                                         <tr>
                                             <td>{{$i+1}}</td>
+                                            @if (Auth::guard('admin')->user()->type == 0)
+                                                <td class="text-nowrap align-middle">{{$item->examcenter}}</td>
+                                            @endif
+    
                                             <td class="text-nowrap align-middle title">{{$item->title}}</td>
                                             <td class="text-nowrap align-middle date"><span>{{$item->date}}</span></td>
                                             <td class="text-nowrap align-middle "><span>{{($item->status==0)?'Active':(($item->status==1)?'Inactive':'closed')}}</span></td>
@@ -48,20 +55,21 @@
                                                 @if ($item->status != 3)
                                                     <div class="btn-group align-top">
                                                         @if ($item->status == 0)
-                                                            <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-plus"></i></button>
+                                                            <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->exid}}"><i class="fa fa-plus"></i></button>
                                                         @endif
-                                                        <button class="btn btn-sm btn-info badge edit" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->id}}"><i class="fa fa-edit"></i></button>
-                                                        <form action="{{route('admin.deleteexam', $item->id)}}" method="POST">
+                                                        <button class="btn btn-sm btn-info badge edit" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->exid}}"><i class="fa fa-edit"></i></button>
+                                                        <form action="{{route('admin.deleteexam', $item->exid)}}" method="POST">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-sm btn-danger badge" type="submit"><i class="fa fa-close"></i></button>
                                                         </form>
-                                                    </div>
+                                                    
                                                 @endif
+                                                        <button class="btn btn-sm btn-warning badge show" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->exid}}"><i class="fa fa-users"></i></button>
+                                                    </div>
                                             </td>
                                         </tr>
                                         @endforeach
-        
                                     </tbody>
                                 </table>
                             </div>
@@ -158,7 +166,7 @@
                                                         </td>
                                                         <td class="text-nowrap align-middle">{{$item->name}}</td>
                                                         <td hidden>
-                                                            <input class="exam_id"  type="text" name="student[{{$item->id}}][exam_id]" >
+                                                            <input class="exam_id"  type="text" name="student[{{$item->exid}}][exam_id]" >
                                                         </td>
                                                     </tr>
                                                 @endforeach

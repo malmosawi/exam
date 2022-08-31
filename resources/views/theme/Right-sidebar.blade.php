@@ -29,6 +29,9 @@
 
 											</div>
 										</div>
+											<a class="dropdown-item  border-top" href="{{route('admin.index')}}">
+												<i class="dropdown-icon fa fa-home "></i> Home 
+											</a>
 											<a class="dropdown-item  border-top" href="{{route('admin.studentpass')}}">
 												<i class="dropdown-icon fa fa-graduation-cap "></i> Students 
 											</a>
@@ -37,6 +40,9 @@
 											</a>
 											<a class="dropdown-item border-top" href="{{route('admin.getstudent',[-1])}}">
 												<i class="dropdown-icon  fa fa-user-times"></i> Students Rejact
+											</a>
+											<a class="dropdown-item border-top" href="{{route('admin.exam')}}">
+												<i class="dropdown-icon  fa fa-audio-description"></i> exam
 											</a>
 											<a class="dropdown-item border-top" href="{{route('admin.advertisement')}}">
 												<i class="dropdown-icon  fa fa-audio-description"></i> Advertisement

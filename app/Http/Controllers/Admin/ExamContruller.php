@@ -20,7 +20,13 @@ class ExamContruller extends Controller
 
     public function create()
     {
-        $exam=Exam::where('admin_id',Auth::guard('admin')->user()->id)->orderBy('status')->get();
+        $exam=Exam::join('users','users.id','exam.admin_id')
+                    ->join('governorate','users.governorate','governorate.id');
+        if (Auth::guard('admin')->user()->type != 0) {
+            $governorate=Auth::guard('admin')->user()->id;
+            $exam=$exam->where('exam.admin_id',$governorate);
+        }
+        $exam=$exam->orderBy('status')->get(['exam.*','exam.id as exid','governorate.governorate as examcenter']);
 
         $governorate=Auth::guard('admin')->user()->governorate;
         $Student = Student::where('governorate',$governorate)

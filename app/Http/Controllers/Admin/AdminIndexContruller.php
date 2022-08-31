@@ -21,15 +21,16 @@ class AdminIndexContruller extends Controller
     public function create()
     {
         // $governorate=Auth::guard('admin')->user()->governorate;
-        $Student = Student::where('approve', NULL)
-                            ->where('mobile_verified_at','!=' ,NULL)->get();
+        $Student = Student::join('governorate','students.governorate','governorate.id')
+                            ->where('approve', NULL)
+                            ->where('mobile_verified_at','!=' ,NULL);
 
-    // if (Auth::guard('admin')->user()->type != 0) {
-    //     $governorate=Auth::guard('admin')->user()->governorate;
-    //     $Student=$Student->where('students.governorate',$governorate);
-    // }
+    if (Auth::guard('admin')->user()->type != 0) {
+        $governorate=Auth::guard('admin')->user()->governorate;
+        $Student=$Student->where('students.governorate',$governorate);
+    }
                 
-        // $Student=$Student->get();
+        $Student=$Student->get(['students.*','students.id as stid','governorate.governorate as examcenter']);
         $governorate=Governorate::all();              
       
         return view('admin.index', ['Student' => $Student, 'governorate'=>$governorate])->with('error', 0);
