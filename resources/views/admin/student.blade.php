@@ -88,13 +88,11 @@
 
            $.ajax({
                 url: "{{route('admin.approvedstudent')}}",
-                type: 'post',
+                type: 'get',
                 data: {_token: CSRF_TOKEN, user_id: user_id, approve:approve},
                 dataType: 'json',
                 success: function(response){
-                    
-                    alert(th.parents('tr').html());
-
+                                
                     th.parents('tr').remove();
                 }
            });

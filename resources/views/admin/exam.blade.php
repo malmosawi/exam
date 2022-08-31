@@ -49,11 +49,10 @@
     
                                             <td class="text-nowrap align-middle title">{{$item->title}}</td>
                                             <td class="text-nowrap align-middle date"><span>{{$item->date}}</span></td>
-                                            <td class="text-nowrap align-middle "><span>{{($item->status==0)?'Active':(($item->status==1)?'Inactive':'closed')}}</span></td>
-                                            <td class="text-nowrap align-middle status" hidden><span>{{($item->status)}}</span></td>
+                                            <td class="text-nowrap align-middle "><span>{{($item->status==0)?'Active':(($item->status==1)?'Inactive':'closed')}}</span> <span class="status" hidden>{{($item->status)}}</span></td>
                                             <td class="text-center align-middle">
-                                                @if ($item->status != 3)
-                                                    <div class="btn-group align-top">
+                                                <div class="btn-group align-top">
+                                                    @if ($item->status != 3)
                                                         @if ($item->status == 0)
                                                             <button class="btn btn-sm btn-primary badge add" data-target="#user-form-modal" data-toggle="modal" type="button" data-id="{{$item->exid}}"><i class="fa fa-plus"></i></button>
                                                         @endif
@@ -63,10 +62,10 @@
                                                             @method('DELETE')
                                                             <button class="btn btn-sm btn-danger badge" type="submit"><i class="fa fa-close"></i></button>
                                                         </form>
-                                                    
-                                                @endif
-                                                        <button class="btn btn-sm btn-warning badge show" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->exid}}"><i class="fa fa-users"></i></button>
-                                                    </div>
+                                                        
+                                                    @endif
+                                                    <button class="btn btn-sm btn-warning badge show" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->exid}}"><i class="fa fa-users"></i></button>
+                                                </div>
                                             </td>
                                         </tr>
                                         @endforeach

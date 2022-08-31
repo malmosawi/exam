@@ -50,7 +50,7 @@ Route::prefix('admin')->name('admin.')->group(function(){
         Route::delete('deleteexamcenter/{id}/force_delete', [ExamcenterContruller::class, 'destroy'])->name('deleteexamcenter');
 
         Route::post('approvedstudent', [AdminIndexContruller::class, 'approved'])->name('approvedstudent');
-        Route::get('approvedstudent', [AdminIndexContruller::class, 'approved'])->name('approvedstudent');
+        Route::get('approvedstudent', [AdminIndexContruller::class, 'approved']);
         Route::get('admins', [AdminContruller::class, 'create'])->name('admins');
         Route::post('admins', [AdminContruller::class, 'store']);
         Route::post('updateadmins', [AdminContruller::class, 'update'])->name('updateadmins');
