@@ -23,16 +23,26 @@ class ExamContruller extends Controller
         $exam=Exam::join('users','users.id','exam.admin_id')
                     ->join('governorate','users.governorate','governorate.id');
         if (Auth::guard('admin')->user()->type != 0) {
-            $governorate=Auth::guard('admin')->user()->id;
-            $exam=$exam->where('exam.admin_id',$governorate);
+            $admin_id=Auth::guard('admin')->user()->id;
+            $exam=$exam->where('exam.admin_id',$admin_id);
         }
         $exam=$exam->orderBy('status')->get(['exam.*','exam.id as exid','governorate.governorate as examcenter']);
+
+
+        $sinex=StudentExam::join('students','students.id','user_id')
+        // ->where('degree','!=',null)
+        ->get()->toArray();
+
+
+        // $sinex=$studentinexamlist->toArray();
+        $sinex = array_column($sinex, 'id');
 
         $governorate=Auth::guard('admin')->user()->governorate;
         $Student = Student::where('governorate',$governorate)
                             ->where('approve', 1)
                             ->where('certificate', null)
                             ->where('mobile_verified_at','!=' ,null)
+                            ->whereNotIn('id', $sinex)
                             ->get();
         return view('admin.exam', ['Exam'=> $exam, 'Student' => $Student] );
     }
@@ -96,10 +106,12 @@ class ExamContruller extends Controller
     {
         // dd($request->all());
         foreach ($request->student as $row) {
-            $studentexam = StudentExam::create([
-                'user_id' => $row['user_id'],
-                'exam_id' => $row['exam_id'],
-            ]);
+            if ( isset($row['user_id'])){
+                $studentexam = StudentExam::create([
+                    'user_id' => $row['user_id'],
+                    'exam_id' => $row['exam_id'],
+                ]);
+            }
         }
         return redirect()->back();
     }
@@ -137,21 +149,29 @@ class ExamContruller extends Controller
     public function getstudentinexam2($id)
     {
         
-        // if($request->method == 1){
-            $student=StudentExam::join('students','students.id','user_id')
+            $studentExam=StudentExam::join('students','students.id','user_id')
             ->where('exam_id',$id)
             ->get(['student_exam.*','students.*','students.id as stid']);
-            // dd($student);
-        // }else{
-        //     $governorate=Auth::guard('admin')->user()->governorate;
-        //     $response['data'] = Student::where('governorate',$governorate)
-        //                         ->where('approve', 1)
-        //                         ->where('certificate', null)
-        //                         ->get();
-    
-        // }
 
-        return view('admin.studentinexam', ['Student'=> $student] );
+
+            $sinex=StudentExam::join('students','students.id','user_id')
+            // ->where('degree','!=',null)
+            ->get()->toArray();
+
+
+            // $sinex=$studentinexamlist->toArray();
+            $sinex = array_column($sinex, 'id');
+
+            $governorate=Auth::guard('admin')->user()->governorate;
+
+            $students = Student::where('governorate',$governorate)
+                                ->where('approve', 1)
+                                ->where('certificate', null)
+                                ->whereNotIn('id', $sinex)
+                                ->get();
+
+
+        return view('admin.studentinexam', ['StudentExam'=> $studentExam, 'Students'=>$students] );
     }
 
 

@@ -64,7 +64,7 @@
                                                         </form>
                                                         
                                                     @endif
-                                                    <button class="btn btn-sm btn-warning badge show" data-target="#exam-form-modal" data-toggle="modal" type="button" data-id="{{$item->exid}}"><i class="fa fa-users"></i></button>
+                                                    <a  href="getstudentinexam2/{{$item->exid}}" class="btn btn-sm btn-warning badge show"  type="button"><i class="fa fa-users"></i></a>
                                                 </div>
                                             </td>
                                         </tr>
