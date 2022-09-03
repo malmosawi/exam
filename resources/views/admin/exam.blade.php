@@ -160,12 +160,13 @@
                                                     <tr>
                                                         <td class="align-middle text-center">
                                                             <div class="custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top">
-                                                                <input class="custom-control-input" id="student-{{$item->id}}" type="checkbox" name="student[{{$item->id}}][user_id]" value="{{$item->id}}"> <label class="custom-control-label" for="student-{{$item->id}}"></label>
+                                                                <input class="custom-control-input" id="student-{{$item->id}}" type="checkbox" name="student[{{$item->id}}][user_id]" value="{{$item->id}}"> 
+                                                                <label class="custom-control-label" for="student-{{$item->id}}"></label>
                                                             </div>
                                                         </td>
                                                         <td class="text-nowrap align-middle">{{$item->name}}</td>
                                                         <td hidden>
-                                                            <input class="exam_id"  type="text" name="student[{{$item->exid}}][exam_id]" >
+                                                            <input class="exam_id"  type="text" name="student[{{$item->id}}][exam_id]" >
                                                         </td>
                                                     </tr>
                                                 @endforeach
@@ -246,7 +247,8 @@
 
         $(document).on('click', '.add', function(){
             $('.exam_id').val($(this).attr('data-id'));
-            var exam_id = Number($(this).attr('data-id'));
+            // alert($(this).attr('data-id'));
+            // var exam_id = Number($(this).attr('data-id'));
     
             //  if(exam_id > 0){
     
@@ -283,43 +285,43 @@
         })
 
         // Create table rows
-        //    function createRows(response,method){
-        //       var len = 0;
+           function createRows(response,method){
+              var len = 0;
                 
-        //       if(response['data'] != null){
-        //          len = response['data'].length;
-        //       }
+              if(response['data'] != null){
+                 len = response['data'].length;
+              }
         
-        //       if(len > 0){
-        //         $('#studenttable tbody').empty(); // Empty <tbody>
+              if(len > 0){
+                // $('#studenttable tbody').empty(); // Empty <tbody>
 
-        //         for(var i=0; i<len; i++){
-        //            var user_id = response['data'][i].user_id;
-        //            var exam_id = response['data'][i].exam_id;
-        //            var name = response['data'][i].name;
-        //            var tr_str = 
-        //            "<tr>" +
-        //                 "<td class='align-middle text-center'>"+
-        //                     "<div class='custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top'>"+
-        //                         "<input class='custom-control-input' id='student-"+user_id+"' type='checkbox' name='student["+user_id+"][user_id]' value='"+user_id+"'";
-        //             if(method == 1){
-        //                 tr_str +="checked='checked'";
-        //             }
-        //             tr_str +=" ><label class='custom-control-label' for='student-"+user_id+"'></label>"+
-        //                     "</div>"+
-        //                 "</td>" +
-        //                 "<td class='text-nowrap align-middle'>"+name+"</td>"
-        //                 "<td> hidden"+
-        //                     "<input class='exam_id'  type='text' name='student["+user_id+"][exam_id]' value='"+exam_id+"' >"+
-        //                 "</td>" +
-        //             "</tr>";
+                for(var i=0; i<len; i++){
+                   var user_id = response['data'][i].user_id;
+                   var exam_id = response['data'][i].exam_id;
+                   var name = response['data'][i].name;
+                //    var tr_str = 
+                //    "<tr>" +
+                //         "<td class='align-middle text-center'>"+
+                //             "<div class='custom-control custom-control-inline custom-checkbox custom-control-nameless m-0 align-top'>"+
+                //                 "<input class='custom-control-input' id='student-"+user_id+"' type='checkbox' name='student["+user_id+"][user_id]' value='"+user_id+"'";
+                //     if(method == 1){
+                //         tr_str +="checked='checked'";
+                //     }
+                //     tr_str +=" ><label class='custom-control-label' for='student-"+user_id+"'></label>"+
+                //             "</div>"+
+                //         "</td>" +
+                //         "<td class='text-nowrap align-middle'>"+name+"</td>"
+                //         "<td> hidden"+
+                //             "<input class='exam_id'  type='text' name='student["+user_id+"][exam_id]' value='"+exam_id+"' >"+
+                //         "</td>" +
+                //     "</tr>";
         
-        //            $("#studenttable tbody").append(tr_str);
-        //         }
-        //       }else{
+                //    $("#studenttable tbody").append(tr_str);
+                }
+              }else{
 
-        //     }
-        //    } 
+            }
+           } 
 
 
     </script>

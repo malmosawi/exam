@@ -94,6 +94,7 @@ class ExamContruller extends Controller
 
     public function studentinexam(Request $request)
     {
+        // dd($request->all());
         foreach ($request->student as $row) {
             $studentexam = StudentExam::create([
                 'user_id' => $row['user_id'],
@@ -105,6 +106,7 @@ class ExamContruller extends Controller
 
     public function editstudentinexam(Request $request)
     {
+        
         foreach ($request->student as $row) {
             $studentexam = StudentExam::create([
                 'user_id' => $row['user_id'],
