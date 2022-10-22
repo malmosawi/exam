@@ -56,15 +56,20 @@ class SyncContruller extends Controller
         }
         
         foreach ($St as $row) {
+            $exam=Exam::find($row['exam_id']);
+
             $StudentExam= StudentExam::find($row['id']);
-            $StudentExam->degree = $row['degree'];
+            if( $row['degree'] ==$exam->degree ){
+                $StudentExam->degree = $row['degree'];
+            }else{
+                $StudentExam->degree = NUll;
+            }
             $StudentExam->save();
 
             $Student= Student::find($row['user_id']);
             $Student->certificate = $row['user_id']. now()->getTimestamp().$row['exam_id'];
             $Student->save();
 
-            $exam=Exam::find($row['exam_id']);
             $exam->status = 3;
             $exam->save();
 

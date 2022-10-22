@@ -29,7 +29,7 @@
                                                     
                                                         <select class="form-control select2 " data-placeholder="Choose one" id="type" name="type" required>
                                                             <option value="0">Doctor</option>
-                                                            <option value="1">Student</option>
+                                                            <option value="1">tSudent</option>
                                                             <option value="2">Nurse</option>
                                                         </select>
                                                    

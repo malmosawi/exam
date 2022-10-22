@@ -27,10 +27,11 @@
                             <thead>
                                 <tr>
                                     <th></th>
-                                    <th class="text-nowrap align-middle">Name</th>
                                     @if (Auth::guard('admin')->user()->type == 0)
-                                        <th class="text-center align-middle">Exam Center</th>
+                                    <th class="text-center align-middle">Exam Center</th>
                                     @endif
+                                    <th class="text-nowrap align-middle">Name</th>
+                                    <th class="text-nowrap align-middle">Job</th>
                                     <th class="text-center align-middle">Exam Title</th>
                                     <th class="text-center align-middle">Exam Date</th>
                                     <th class="text-center align-middle">Degree</th>
@@ -43,11 +44,20 @@
                                 @foreach ($Student as $i=>$item)
                                 <tr>
                                     <td>{{$i+1}}</td>
-                                    <td class="text-nowrap align-middle">{{$item->name}}</td>
                                     @if (Auth::guard('admin')->user()->type == 0)
-                                        <td class="text-center align-middle">{{$item->examcenter}}</td>
+                                    <td class="text-center align-middle">{{$item->examcenter}}</td>
                                     @endif
                                     <td class="text-center align-middle">{{$item->title}} </td>
+                                    <td class="text-nowrap align-middle">{{$item->name}}</td>
+                                    <td class="text-nowrap align-middle">
+                                        @if ($item->type == 0)
+                                            Doctor
+                                        @elseif($item->type == 1)
+                                            Sudent
+                                        @else
+                                            Nurse
+                                        @endif
+                                    </td>
                                     <td class="text-center align-middle"> {{$item->date}}</td>
                                     <td class="text-center align-middle">{{$item->degree}} </td>
                                     <td class="text-center align-middle">

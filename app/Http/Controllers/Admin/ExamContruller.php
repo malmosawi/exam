@@ -51,6 +51,7 @@ class ExamContruller extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
+            'degree' => ['required'],
             'date' => ['required', 'date'],
         ]);
         if (isset($request->status)){
@@ -60,6 +61,7 @@ class ExamContruller extends Controller
         }
         $exam = Exam::create([
             'title' => $request->title,
+            'degree' => $request->degree,
             'date' => $request->date,
             'status' =>$request->status,
             'admin_id' => Auth::guard('admin')->user()->id,
@@ -72,6 +74,7 @@ class ExamContruller extends Controller
     {
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
+            'degree' => ['required'],
             'date' => ['required', 'date'],
         ]);
         if (isset($request->status)){
@@ -84,6 +87,7 @@ class ExamContruller extends Controller
         $exam = Exam::find($id);
         
         $exam->title = $request->title;
+        $exam->degree = $request->degree;
         $exam->date = $request->date;
         $exam->status =$request->status;
         $exam->save();

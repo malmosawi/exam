@@ -33,7 +33,8 @@
                                             @if (Auth::guard('admin')->user()->type == 0)
                                                 <th>Exam Center</th>
                                             @endif
-                                            <th >Title</th>
+                                            <th>Title</th>
+                                            <th>Degree</th>
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th class="text-center">Actions</th>
@@ -48,6 +49,7 @@
                                             @endif
     
                                             <td class="text-nowrap align-middle title">{{$item->title}}</td>
+                                            <td class="text-nowrap align-middle degree">{{$item->degree}}</td>
                                             <td class="text-nowrap align-middle date"><span>{{$item->date}}</span></td>
                                             <td class="text-nowrap align-middle "><span>{{($item->status==0)?'Active':(($item->status==1)?'Inactive':'closed')}}</span> <span class="status" hidden>{{($item->status)}}</span></td>
                                             <td class="text-center align-middle">
@@ -106,6 +108,10 @@
                                 <div class="form-group">
                                     <label class="form-label" for="title">Exam Title</label>
                                     <input type="text" class="form-control"  placeholder="Exam Tilte"  name="title" value="" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="degree">Exam Degree</label>
+                                    <input type="number" class="form-control"  placeholder="Exam Degree"  name="degree" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="date">Exam Date</label>
@@ -210,6 +216,10 @@
                                     <input type="text" class="form-control" id="title" placeholder="Exam Tilte"  name="title" value="" required>
                                 </div>
                                 <div class="form-group">
+                                    <label class="form-label" for="title">Exam degree</label>
+                                    <input type="number" class="form-control" id="degree" placeholder="Exam degree"  name="degree" value="" required >
+                                </div>
+                                <div class="form-group">
                                     <label class="form-label" for="date">Exam Date</label>
                                     <input type="date" class="form-control" id="date" placeholder="Exam Date"  name="date" value="" required>
                                 </div>
@@ -239,6 +249,7 @@
             // $('#user-form-modal').find('#edit').attr('data-id','1');
             $('#id').val($(this).attr('data-id'));
             $('#title').val($(this).parents('tr').find('.title').text());
+            $('#degree').val($(this).parents('tr').find('.degree').text());
             $('#date').val($(this).parents('tr').find('.date').text());
             if($(this).parents('tr').find('.status').text() == '1'){
                 $('#status').removeAttr('checked');

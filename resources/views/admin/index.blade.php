@@ -23,6 +23,7 @@
                                         @endif
 
                                             <th>Name</th>
+                                            <th>Job</th>
                                             <th>Mobile Number</th>
                                             <th>Regester Date</th>
                                             <th class="text-center">Actions</th>
@@ -43,6 +44,16 @@
                                                 @endif
         
                                                 <td class="text-nowrap align-middle name">{{ $item->name }}</td>
+                                                <td class="text-nowrap align-middle name">
+                                                @if ($item->type == 0)
+                                                    Doctor
+                                                @elseif($item->type == 1)
+                                                    Sudent
+                                                @else
+                                                    Nurse
+                                                @endif
+                                                
+                                                </td>
                                                 <td class="text-nowrap align-middle mobile_number">
                                                     <span>{{ $item->mobile_number }}</span></td>
                                                 <td class="text-nowrap align-middle mobile_number">

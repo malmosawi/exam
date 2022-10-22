@@ -31,6 +31,7 @@
                                         <th >Exam Center</th>
                                     @endif
                                     <th >Name</th>
+                                    <th >Job</th>
                                     <th>Mobile Number</th>
                                     <th class="text-center">Actions</th>
                                 </tr>
@@ -49,6 +50,16 @@
                                         <td class="text-nowrap align-middle">{{$item->examcenter}}</td>
                                     @endif
                                     <td class="text-nowrap align-middle">{{$item->name}}</td>
+                                    <td class="text-nowrap align-middle">
+                                        @if ($item->type == 0)
+                                            Doctor
+                                        @elseif($item->type == 1)
+                                            Sudent
+                                        @else
+                                            Nurse
+                                        @endif
+                                    </td>
+
                                     <td class="text-nowrap align-middle"><span>{{$item->mobile_number}}</span></td>
                                     <td class="text-center align-middle">
                                         <div class="btn-group align-top">

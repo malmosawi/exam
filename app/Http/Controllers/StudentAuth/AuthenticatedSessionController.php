@@ -38,7 +38,7 @@ class AuthenticatedSessionController extends Controller
 
         $Student=Student::find(Auth::guard('student')->user()->id);
 
-        $Student->online = 1;
+        // $Student->online = 1;
         $Student->save();
         
 

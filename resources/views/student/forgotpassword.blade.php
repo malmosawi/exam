@@ -12,58 +12,32 @@
                                     <div class="text-center mb-6">
                                         <img src="{{asset('assets/images/brand/logo.png')}}" class="" alt="">
                                     </div>
-                                    <h3>student Login</h3>
+                                    <h3>Trouble Logging In?</h3>
+                                    <p>
+                                        Enter your mobile number we'll send you a code for whatsapp to get back into your account.
+                                    </p>
                                     <!-- Session Status -->
                                     <x-auth-session-status class="mb-4" :status="session('status')" />
                                     <!-- Validation Errors -->
                                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                                    <form action="{{ route('student.login') }}"  method="POST">
+                                    <form action="{{ route('student.sendforgotcode') }}"  method="POST">
                                         @csrf
-                                        <p class="text-muted">Sign In to your account</p>
-                                        <div class="input-group mb-3">
-                                            <span class="input-group-addon bg-white"><i class="fa fa-user"></i></span>
-                                            <input  id="mobile_number" type="text" class="form-control" placeholder="mobile_number" type="text" name="mobile_number" :value="old('mobile_number')" required autofocus >
-                                        </div>
-                                        <div class="input-group mb-4">
-                                            <span class="input-group-addon bg-white"><i class="fa fa-unlock-alt"></i></span>
-                                            <input id="password" class="form-control" placeholder="Password" type="password" name="password" required autocomplete="current-password">
+                                         <div class="input-group mb-3">
+                                            <span class="input-group-addon bg-white"><i class="fa fa-mobile-phone"></i></span>
+                                            <input  id="mobile_number" type="text" class="form-control" placeholder="Mobile Number" type="text" name="mobile_number" :value="old('mobile_number')" required autofocus >
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
 
-                                                <button type="submit" class="btn btn-primary btn-block">{{ __('Log in') }}</button>
+                                                <button type="submit" class="btn btn-primary btn-block">{{ __('Send Code') }}</button>
                                             </div>
-                                            <!-- Remember Me -->
                                             <div class="col-12">
-                                                <label for="remember_me" class="inline-flex items-center">
-                                                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                                                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                                                </label>
-                                            </div>
-
-                                            <div class="col-12">
-                                                
-                                            </div>
-
-                                            <div class="col-12">
-                                                {{-- @if (Route::has('password.request'))
-                                                    <a href="{{ route('password.request') }}" class="btn btn-link box-shadow-0 px-0">{{ __('Forgot your password?') }}</a>
-                                                @endif --}}
-                                             
                                                 <label for="register" class="inline-flex items-center">
 
                                                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('student.register') }}">
                                                         {{ __('for register') }}
                                                     </a>
                                                 </label>
-                                                <br>
-                                                <label for="forgot_password" class="inline-flex items-center">
-                                                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('student.forgotpassword') }}">
-
-                                                        <span class="ml-2 text-sm text-gray-600">{{ __('Forgot password?') }}</span>
-                                                    </a>
-                                                </label>
-
                                             </div>
                                         </div>
                                         <div class="mt-6 btn-list">
