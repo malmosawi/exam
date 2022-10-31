@@ -30,9 +30,9 @@
                                     @if (Auth::guard('admin')->user()->type == 0)
                                     <th class="text-center align-middle">Exam Center</th>
                                     @endif
+                                    <th class="text-center align-middle">Exam Title</th>
                                     <th class="text-nowrap align-middle">Name</th>
                                     <th class="text-nowrap align-middle">Job</th>
-                                    <th class="text-center align-middle">Exam Title</th>
                                     <th class="text-center align-middle">Exam Date</th>
                                     <th class="text-center align-middle">Degree</th>
                                     <th class="text-center align-middle">certificate</th>
