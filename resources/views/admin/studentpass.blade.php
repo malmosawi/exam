@@ -61,7 +61,7 @@
                                     <td class="text-center align-middle"> {{$item->date}}</td>
                                     <td class="text-center align-middle">{{$item->degree}} </td>
                                     <td class="text-center align-middle">
-                                        <a  target="_blank" href="{{route('admin.printCertificate',$item->stid)}}" class="card-options-collapse" >
+                                        <a  target="_blank" href="{{route('student.printCertificate',$item->stid)}}" class="card-options-collapse" >
                                             <i class="fa fa-print"></i>
                                         </a>
                                     </td>
