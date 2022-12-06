@@ -17,6 +17,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Http;
 
 
 
@@ -31,17 +32,20 @@ class ForgotPassword extends Controller
 
     }
     public function store(Request $request){
-        // $request->validate([
-        //     'mobile_number' => ['required', 'string', 'digits:11'],
-        // ]);
-        // $c=random_int(111111, 999999);
-        // $code='Your IPLS verification code is '.$c;
-        // $user = Student::create([
-        //     'mobile_verify_code' => $c,
+        $request->validate([
+            'mobile_number' => ['required', 'string', 'digits:11','exists:students'],
+        ]);
 
-        // ]);
-        // $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no='. $request->mobile_number.'&text='. $code);
+        // dd($user);
+        $c=random_int(111111, 999999);
+        $code='Your IPLS verification code is '.$c;
 
+        $user = Student::where('mobile_number', $request->mobile_number)
+                        ->update(['mobile_verify_code'=>$c]);
+
+        
+        $response = Http::get('http://wa.aljthoor.com:89/api/send.php?token=3802&no='. $request->mobile_number.'&text='. $code);
+        $request->session()->put('mobile_number', $request->mobile_number);
         return redirect()->route('student.forgotcode');
 
     }
@@ -51,7 +55,12 @@ class ForgotPassword extends Controller
         return view('student.forgotcode')->with('error',0);
 
     }
-    public function verifyforgotcode(){
+    public function verifyforgotcode(Request $request){
+        $request->validate([
+            'mobile_verify_code' => ['required','exists:students'],
+        ]);
+
+
         return view('student.newpassword')->with('error',0);
 
     }
@@ -71,8 +80,6 @@ class ForgotPassword extends Controller
 
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            // 'email' => ['required', 'string', 'email', 'max:255'],
-            // 'phone' => ['required', 'string', 'digits:11'],
             'governorate'=> ['required'],
         ]);
 
@@ -81,8 +88,6 @@ class ForgotPassword extends Controller
         $profile = Student::find($user);
         
         $profile->name = $request->name;        
-        // $profile->email = $request->email;        
-        // $profile->phone = $request->phone;
         $profile->governorate = $request->governorate;    
         $profile->save();
         
@@ -90,23 +95,17 @@ class ForgotPassword extends Controller
 
         return view('student.profile',['profile' => $profile, 'governorate'=>$Governorate])->with('error',0);
     }
-    public function updatepassword(Request $request)
+    public function newpassword(Request $request)
     {
+                // dd($request->session()->get('mobile_number'));
 
         $request->validate([
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', Rules\Password::defaults()],
         ]);
+        $user = Student::where('mobile_number', $request->session()->get('mobile_number'))
+                    ->update(['password'=>Hash::make($request->password),'mobile_verify_code'=>NULL ]);
 
-        $user = Auth::guard('student')->user()->id;
-
-        $profile = Student::find($user);
-        
-        $profile->password = Hash::make($request->password);
-        $profile->save();
-        
-        $Governorate = Governorate::all();
-
-        return view('student.profile',['profile' => $profile, 'governorate'=>$Governorate])->with('error',0);
+        return redirect()->route('student.login');
     }
 
 }

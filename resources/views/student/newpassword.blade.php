@@ -19,11 +19,11 @@
                                     <x-auth-session-status class="mb-4" :status="session('status')" />
                                     <!-- Validation Errors -->
                                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                                    <form action="{{ route('student.newpassword') }}"  method="POST">
+                                    <form action="{{ route('student.savepassword') }}"  method="POST">
                                         @csrf
                                          <div class="input-group mb-3">
                                             <span class="input-group-addon bg-white"><i class="fa fa-unlock-alt"></i></span>
-                                            <input  id="mobile_number" type="text" class="form-control" placeholder="New Password" type="text" name="mobile_number" :value="old('mobile_number')" required autofocus >
+                                            <input  id="mobile_number" type="text" class="form-control" placeholder="New Password" type="text" name="password" :value="old('mobile_number')" required autofocus >
                                         </div>
                                         <div class="row">
                                             <div class="col-12">

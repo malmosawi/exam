@@ -13,21 +13,21 @@
                                         <img src="{{asset('assets/images/brand/logo.png')}}" class="" alt="">
                                     </div>
                                     <div class="text-sm text-gray-600" >
-                                        {{ __('Please enter the OTP sent to your number:') }} 
+                                        {{ __('Please enter the OTP sent to your number:') }} {{Session::get('mobile_number')}}
                                     </div>
                                     <div class="text-sm text-gray-600" id ="resend" >
-                                        <a href="{{ route('student.verification.resend') }}">Resend code</a>
+                                        <a href="{{ route('student.forgotpassword') }}">Resend code</a>
                                     </div>
 
                                     <!-- Session Status -->
                                     <x-auth-session-status class="mb-4" :status="session('status')" />
                                     <!-- Validation Errors -->
                                     <x-auth-validation-errors class="mb-4" :errors="$errors" />
-                                    <form action="{{ route('student.newpassword') }}"  method="POST">
+                                    <form action="{{ route('student.newpassword') }}"  method="GET">
                                         @csrf
                                          <div class="input-group mb-3">
                                             <span class="input-group-addon bg-white"><i class="fa fa-check"></i></span>
-                                            <input  id="mobile_number" type="text" class="form-control" placeholder="Enter Code" type="text" name="mobile_number" :value="old('mobile_number')" required autofocus >
+                                            <input  id="mobile_number" type="text" class="form-control" placeholder="Enter Code" type="text" name="mobile_verify_code" :value="old('mobile_number')" required autofocus >
                                         </div>
                                         <div class="row">
                                             <div class="col-12">

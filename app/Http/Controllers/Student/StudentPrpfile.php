@@ -77,4 +77,6 @@ class StudentPrpfile extends Controller
         return view('student.profile',['profile' => $profile, 'governorate'=>$Governorate])->with('error',0);
     }
 
+
+
 }

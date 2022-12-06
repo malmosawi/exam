@@ -30,7 +30,8 @@ Route::prefix('student')->name('student.')->group(function(){
         Route::get('forgotpassword', [ForgotPassword::class, 'create'])->name('forgotpassword');
         Route::post('sendforgotcode', [ForgotPassword::class, 'store'])->name('sendforgotcode');
         Route::get('forgotcode', [ForgotPassword::class, 'forgotcode'])->name('forgotcode');
-        Route::post('newpassword', [ForgotPassword::class, 'verifyforgotcode'])->name('newpassword');
+        Route::get('newpassword', [ForgotPassword::class, 'verifyforgotcode'])->name('newpassword');
+        Route::post('savepassword', [ForgotPassword::class, 'newpassword'])->name('savepassword');
 
         Route::get('printCertificate/{id}', [StudentIndex::class, 'printCertificate'])->name('printCertificate');
 
